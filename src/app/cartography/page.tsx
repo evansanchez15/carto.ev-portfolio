@@ -151,11 +151,11 @@ export default function CartographyPage() {
                 </div>
                 
                 <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[200px] lg:pr-[20px] xl:pr-[40px]">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Election Mapping - 2025
                 </h4>
-                <p className="text-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold leading-none text-right lg:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                <p className="text-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold leading-none text-right min-w-0 flex-shrink" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                   QGIS, Adobe Illustrator, Excel
                 </p>
               </div>
@@ -186,11 +186,11 @@ export default function CartographyPage() {
                   </div>
                 </div>
             <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[400px] lg:pr-[20px] xl:pr-[40px]">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   The Great Salt Lake - 2025
                 </h4>
-                <p className="text-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold leading-none text-right lg:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                <p className="text-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold leading-none text-right min-w-0 flex-shrink" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                   QGIS, Adobe Illustrator, Excel
                 </p>
               </div>
@@ -222,11 +222,11 @@ export default function CartographyPage() {
             </div>
             
             <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[0px] lg:pr-[20px] xl:pr-[40px]">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Unified Health - 2025
                 </h4>
-                <p className="text-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold leading-none text-right lg:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                <p className="text-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold leading-none text-right min-w-0 flex-shrink" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                   Power BI, SQL Server, ArcGIS
                 </p>
               </div>
@@ -303,11 +303,11 @@ export default function CartographyPage() {
             </div>
             
             <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[120px] lg:pr-[20px] xl:pr-[40px]">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Interactive Web Maps - 2024
                 </h4>
-                <p className="text-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold leading-none text-right lg:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                <p className="text-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] xl:text-[16px] font-bold leading-none text-right min-w-0 flex-shrink" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                   ArcGIS Online, JavaScript, HTML/CSS
                 </p>
               </div>
