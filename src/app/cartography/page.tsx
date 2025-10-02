@@ -32,28 +32,30 @@ export default function CartographyPage() {
         
         {/* Content Overlay */}
         <div className="relative z-10 h-full flex flex-col">
-          {/* Top Section */}
-          <div className="flex justify-between items-start p-4 sm:p-6 md:p-8 lg:p-12">
+          {/* Top Section - Just CARTO.EV */}
+          <div className="flex justify-start items-start p-4 sm:p-6 md:p-8 lg:p-12">
             {/* Brand Name - Top Left */}
             <Link href="/">
               <h1 className="text-[#424242] text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
                 CARTO.EV
               </h1>
             </Link>
-            
-            {/* Your Name - Top Right */}
+          </div>
+          
+          {/* Middle Section - EVAN SANCHEZ positioned just ABOVE the green line */}
+          <div className="absolute top-[68%] right-4 sm:right-6 md:right-8 lg:right-12" style={{ transform: 'translateY(-100%)' }}>
             <div className="text-right">
-              <h2 className="text-[#5B5B5B] text-[24px] sm:text-[36px] md:text-[56px] lg:text-[76px] xl:text-[96px] font-bold leading-tight tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <h2 className="text-[#5B5B5B] text-[28px] sm:text-[38px] md:text-[48px] lg:text-[58px] xl:text-[68px] font-bold leading-tight tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 EVAN<br />
                 SANCHEZ
               </h2>
             </div>
           </div>
           
-          {/* Middle Section - Flexible spacer */}
+          {/* Spacer to push bottom content down */}
           <div className="flex-1"></div>
           
-          {/* Bottom Section */}
+          {/* Bottom Section - Back to original position */}
           <div className="flex justify-between items-end p-4 sm:p-6 md:p-8 lg:p-12">
             {/* Subtitle - Bottom Left */}
             <div>
