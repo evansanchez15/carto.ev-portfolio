@@ -184,7 +184,7 @@ export default function CartographyPage() {
               {/* Horizontal line */}
               <div className="w-full h-[1px] bg-black mt-2 sm:mt-0 mb-[8px]"></div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                This map illustrates the dramatic decline of the Great Salt Lake, which in August 2025 reached its lowest recorded level. The map combines shaded relief with hydrological datasets to compare historical extents (1984, average, 2024) against the current shoreline. A timeline chart beneath the map contextualizes the lake's fall relative to historical averages, presenting both geographic and temporal dimensions of the crisis.
+                This map illustrates the dramatic decline of the Great Salt Lake, which in August 2025 reached its lowest recorded level. The map combines shaded relief with hydrological datasets to compare historical extents (1984, average, 2024) against the current shoreline. A timeline chart beneath the map contextualizes the lake&apos;s fall relative to historical averages, presenting both geographic and temporal dimensions of the crisis.
               </p>
             </div>
           </div>

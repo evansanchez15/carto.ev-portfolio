@@ -77,7 +77,7 @@ export default function PhotographyPage() {
               "photo28.jpg",
               "photo8.jpg",
               "photo5.jpg",
-            ].map((filename, index) => (
+            ].map((filename) => (
               <div key={filename} className="photo-item">
                 <Image
                   src={`/assets/images/portfolio/photography/${filename}`}
@@ -107,7 +107,7 @@ export default function PhotographyPage() {
               "photo20.jpg",
               "photo2.jpg",
               "photo3.jpg",
-            ].map((filename, index) => (
+            ].map((filename) => (
               <div key={filename} className="photo-item">
                 <Image
                   src={`/assets/images/portfolio/photography/${filename}`}

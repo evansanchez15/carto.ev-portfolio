@@ -67,11 +67,11 @@ export default function ContactPage() {
                 EVAN SANCHEZ
               </h3>
               <p className="text-[#666666] text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed mb-4" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                I'm a cartographer and photographer passionate about visual storytelling through maps and imagery. 
+                I&apos;m a cartographer and photographer passionate about visual storytelling through maps and imagery. 
                 My work focuses on creating clear, impactful visualizations that serve journalism, research, and advocacy.
               </p>
               <p className="text-[#666666] text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                Let's collaborate to bring your spatial stories to life.
+                Let&apos;s collaborate to bring your spatial stories to life.
               </p>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
           {/* Right Column - Contact Form */}
           <div>
             <h3 className="text-[#333333] text-[18px] sm:text-[20px] md:text-[24px] font-bold mb-6 tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-              LET'S WORK TOGETHER
+              LET&apos;S WORK TOGETHER
             </h3>
             
             <form 
