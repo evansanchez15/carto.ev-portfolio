@@ -152,7 +152,7 @@ export default function CartographyPage() {
                 
                 <div className="flex-1 mx-[20px] sm:mx-[40px] md:mx-0 md:pt-[200px] md:pr-[100px]">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
-                <h4 className="text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] font-italic tracking-[0.05em] leading-none" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
+                <h4 className="text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] font-italic tracking-[0.05em] leading-none whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Election Mapping - 2025
                 </h4>
                 <p className="text-black text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] font-bold leading-none text-right flex-shrink-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
@@ -187,7 +187,7 @@ export default function CartographyPage() {
                 </div>
             <div className="flex-1 mx-[20px] sm:mx-[40px] md:mx-0 md:pt-[400px] md:pr-[100px]">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
-                <h4 className="text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] font-italic tracking-[0.05em] leading-none" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
+                <h4 className="text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] font-italic tracking-[0.05em] leading-none whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   The Great Salt Lake - 2025
                 </h4>
                 <p className="text-black text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] font-bold leading-none text-right flex-shrink-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
@@ -223,7 +223,7 @@ export default function CartographyPage() {
             
             <div className="flex-1 mx-[20px] sm:mx-[40px] md:mx-0 md:pt-[0px] md:pr-[100px]">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
-                <h4 className="text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] font-italic tracking-[0.05em] leading-none" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
+                <h4 className="text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] font-italic tracking-[0.05em] leading-none whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Unified Health - 2025
                 </h4>
                 <p className="text-black text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] font-bold leading-none text-right flex-shrink-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
@@ -304,7 +304,7 @@ export default function CartographyPage() {
             
             <div className="flex-1 mx-[20px] sm:mx-[40px] md:mx-0 md:pt-[120px] md:pr-[100px]">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
-                <h4 className="text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] font-italic tracking-[0.05em] leading-none" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
+                <h4 className="text-black text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[24px] font-italic tracking-[0.05em] leading-none whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Interactive Web Maps - 2024
                 </h4>
                 <p className="text-black text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] xl:text-[18px] font-bold leading-none text-right flex-shrink-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
