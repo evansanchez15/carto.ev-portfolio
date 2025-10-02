@@ -131,9 +131,9 @@ export default function CartographyPage() {
         </div>
 
             {/* Election Map */}
-            <div className="relative w-full mb-[100px] sm:mb-[130px] md:mb-[170px]">
-              <div className="flex flex-col md:flex-row">
-                <div className="mx-[20px] sm:mx-[40px] md:ml-[170px] md:mr-[60px] flex-shrink-0 md:w-[700px] mb-[30px] md:mb-0">
+            <div className="relative w-full mb-[100px] sm:mb-[130px] md:mb-[170px] overflow-hidden">
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+                <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] mb-[30px] lg:mb-0">
                   <div 
                     className="cursor-pointer hover:opacity-90 transition-opacity"
                     onClick={() => openModal("/assets/images/portfolio/cartography/utah-election-2024.png")}
@@ -150,7 +150,7 @@ export default function CartographyPage() {
                   </div>
                 </div>
                 
-                <div className="flex-1 mx-[20px] sm:mx-[40px] md:mx-[20px] md:pt-[200px] md:pr-[20px] lg:pr-[40px] xl:pr-[60px]">
+                <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[200px] lg:pr-[20px] xl:pr-[40px]">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Election Mapping - 2025
@@ -169,9 +169,9 @@ export default function CartographyPage() {
             </div>
 
             {/* Great Salt Lake Map */}
-            <div className="relative w-full mb-[150px] sm:mb-[200px] md:mb-[250px]">
-              <div className="flex flex-col md:flex-row">
-                <div className="mx-[20px] sm:mx-[40px] md:ml-[170px] md:mr-[60px] flex-shrink-0 md:w-[700px] mb-[30px] md:mb-0">
+            <div className="relative w-full mb-[150px] sm:mb-[200px] md:mb-[250px] overflow-hidden">
+              <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+                <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] mb-[30px] lg:mb-0">
                   <div 
                     className="cursor-pointer hover:opacity-90 transition-opacity"
                     onClick={() => openModal("/assets/images/portfolio/cartography/GreatSaltLakeFinal.png")}
@@ -185,7 +185,7 @@ export default function CartographyPage() {
                     />
                   </div>
                 </div>
-            <div className="flex-1 mx-[20px] sm:mx-[40px] md:mx-[20px] md:pt-[400px] md:pr-[20px] lg:pr-[40px] xl:pr-[60px]">
+            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[400px] lg:pr-[20px] xl:pr-[40px]">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   The Great Salt Lake - 2025
@@ -204,9 +204,9 @@ export default function CartographyPage() {
         </div>
 
         {/* Unified Health Section */}
-        <div className="relative w-full mb-[20px] sm:mb-[25px] md:mb-[30px]">
-          <div className="flex flex-col md:flex-row">
-            <div className="mx-[20px] sm:mx-[40px] md:ml-[75px] md:mr-[60px] flex-shrink-0 md:w-[700px] mb-[30px] md:mb-0">
+        <div className="relative w-full mb-[20px] sm:mb-[25px] md:mb-[30px] overflow-hidden">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+            <div className="mx-[20px] sm:mx-[40px] lg:ml-[75px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] mb-[30px] lg:mb-0">
               <div 
                 className="cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => openModal("/assets/images/portfolio/cartography/Unified1.png")}
@@ -221,7 +221,7 @@ export default function CartographyPage() {
               </div>
             </div>
             
-            <div className="flex-1 mx-[20px] sm:mx-[40px] md:mx-[20px] md:pt-[0px] md:pr-[20px] lg:pr-[40px] xl:pr-[60px]">
+            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[0px] lg:pr-[20px] xl:pr-[40px]">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Unified Health - 2025
@@ -285,9 +285,9 @@ export default function CartographyPage() {
         </div>
 
         {/* Hurricane Milton Tracker */}
-        <div className="relative w-full mb-[100px] sm:mb-[130px] md:mb-[170px]">
-          <div className="flex flex-col md:flex-row">
-            <div className="mx-[20px] sm:mx-[40px] md:ml-[170px] md:mr-[60px] flex-shrink-0 md:w-[700px] mb-[30px] md:mb-0">
+        <div className="relative w-full mb-[100px] sm:mb-[130px] md:mb-[170px] overflow-hidden">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+            <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] mb-[30px] lg:mb-0">
               <div 
                 className="cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => openModal("/assets/images/portfolio/cartography/HurricaneDash.png")}
@@ -302,7 +302,7 @@ export default function CartographyPage() {
               </div>
             </div>
             
-            <div className="flex-1 mx-[20px] sm:mx-[40px] md:mx-[20px] md:pt-[120px] md:pr-[20px] lg:pr-[40px] xl:pr-[60px]">
+            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[120px] lg:pr-[20px] xl:pr-[40px]">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Interactive Web Maps - 2024
