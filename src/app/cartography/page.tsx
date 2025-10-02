@@ -17,52 +17,63 @@ export default function CartographyPage() {
 
   return (
     <div className="min-h-screen bg-[#FEFFFE] relative">
-      {/* Topographic Background - Header Area */}
-      <div className="absolute top-0 left-0 w-full h-[100vh] min-h-[800px] max-h-[1400px] overflow-hidden opacity-80">
-        <Image
-          src="/assets/images/portfolio/cartography/Contour3.svg"
-          alt="Topographic contour lines background"
-          width={1728}
-          height={1117}
-          className="object-cover object-top w-full h-auto"
-          style={{ zIndex: 0 }}
-        />
-      </div>
-      {/* Brand Name - Top Left */}
-      <div className="absolute top-[30px] left-[20px] sm:top-[50px] sm:left-[40px] md:top-[67px] md:left-[67px] z-10">
-        <Link href="/">
-          <h1 className="text-[#424242] text-[48px] sm:text-[72px] md:text-[96px] lg:text-[128px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
-            CARTO.EV
-          </h1>
-        </Link>
-      </div>
-
-      {/* Your Name - Top Right */}
-      <div className="absolute top-[15%] sm:top-[18%] md:top-[20%] lg:top-[25%] xl:top-[30%] right-[20px] sm:right-[30px] md:right-[40px] z-10 text-right">
-        <h2 className="text-[#5B5B5B] text-[36px] sm:text-[56px] md:text-[76px] lg:text-[96px] font-bold leading-tight tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-          EVAN<br />
-          SANCHEZ
-        </h2>
-      </div>
-
-      {/* Subtitle */}
-      <div className="absolute top-[45%] sm:top-[50%] md:top-[55%] lg:top-[60%] xl:top-[65%] left-[20px] sm:left-[30px] md:left-[36px] z-10">
-        <h3 className="text-[#333333] text-[16px] sm:text-[22px] md:text-[28px] font-bold tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-          CARTOGRAPHY AS COMMUNICATION
-        </h3>
-        <p className="text-[#242424] text-[12px] sm:text-[16px] md:text-[20px] font-bold tracking-[0.05em] mt-[15px]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-          Designing clear maps that inform journalism,<br />
-          research, and impact
-        </p>
-      </div>
-
-      {/* Contact Button */}
-      <div className="absolute top-[65%] sm:top-[70%] md:top-[75%] lg:top-[80%] xl:top-[85%] right-[20px] sm:right-[30px] md:right-[36px] z-10">
-        <Link href="/contact">
-          <button className="bg-[#B9B9B9] text-black px-[16px] py-[8px] sm:px-[20px] sm:py-[10px] md:px-[24px] md:py-[12px] rounded-lg text-[14px] sm:text-[15px] md:text-[16px] font-bold tracking-[0.05em] hover:bg-[#A9A9A9] transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            CONTACT
-          </button>
-        </Link>
+      {/* Hero Section Container */}
+      <div className="relative w-full h-screen min-h-[600px] max-h-[1200px] overflow-hidden">
+        {/* Topographic Background */}
+        <div className="absolute inset-0 opacity-80">
+          <Image
+            src="/assets/images/portfolio/cartography/Contour3.svg"
+            alt="Topographic contour lines background"
+            fill
+            className="object-cover object-center"
+            style={{ zIndex: 0 }}
+          />
+        </div>
+        
+        {/* Content Overlay */}
+        <div className="relative z-10 h-full flex flex-col">
+          {/* Top Section */}
+          <div className="flex justify-between items-start p-4 sm:p-6 md:p-8 lg:p-12">
+            {/* Brand Name - Top Left */}
+            <Link href="/">
+              <h1 className="text-[#424242] text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
+                CARTO.EV
+              </h1>
+            </Link>
+            
+            {/* Your Name - Top Right */}
+            <div className="text-right">
+              <h2 className="text-[#5B5B5B] text-[24px] sm:text-[36px] md:text-[56px] lg:text-[76px] xl:text-[96px] font-bold leading-tight tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                EVAN<br />
+                SANCHEZ
+              </h2>
+            </div>
+          </div>
+          
+          {/* Middle Section - Flexible spacer */}
+          <div className="flex-1"></div>
+          
+          {/* Bottom Section */}
+          <div className="flex justify-between items-end p-4 sm:p-6 md:p-8 lg:p-12">
+            {/* Subtitle - Bottom Left */}
+            <div>
+              <h3 className="text-[#333333] text-[14px] sm:text-[18px] md:text-[24px] lg:text-[28px] font-bold tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                CARTOGRAPHY AS COMMUNICATION
+              </h3>
+              <p className="text-[#242424] text-[10px] sm:text-[14px] md:text-[18px] lg:text-[20px] font-bold tracking-[0.05em] mt-2 sm:mt-3 md:mt-4" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                Designing clear maps that inform journalism,<br />
+                research, and impact
+              </p>
+            </div>
+            
+            {/* Contact Button - Bottom Right */}
+            <Link href="/contact">
+              <button className="bg-[#B9B9B9] text-black px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-lg text-[12px] sm:text-[14px] md:text-[16px] font-bold tracking-[0.05em] hover:bg-[#A9A9A9] transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                CONTACT
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
 
       {/* Green Decorative Elements - Minimal Accent */}
@@ -88,7 +99,7 @@ export default function CartographyPage() {
       </div>
 
       {/* Main Content */}
-      <div style={{ paddingTop: 'max(100vh, 800px)' }}>
+      <div className="pt-8 sm:pt-12 md:pt-16">
         {/* Large Hero Image - Gondola */}
         <div className="relative w-full">
           {/* Gondola Title and Tools */}
