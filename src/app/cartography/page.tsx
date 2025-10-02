@@ -18,7 +18,7 @@ export default function CartographyPage() {
   return (
     <div className="min-h-screen bg-[#FEFFFE] relative">
       {/* Topographic Background - Header Area */}
-      <div className="absolute top-0 left-0 w-full h-[800px] sm:h-[1000px] md:h-[1200px] overflow-hidden opacity-80">
+      <div className="absolute top-0 left-0 w-full h-[100vh] min-h-[800px] max-h-[1400px] overflow-hidden opacity-80">
         <Image
           src="/assets/images/portfolio/cartography/Contour3.svg"
           alt="Topographic contour lines background"
@@ -38,7 +38,7 @@ export default function CartographyPage() {
       </div>
 
       {/* Your Name - Top Right */}
-      <div className="absolute top-[150px] right-[20px] sm:top-[200px] sm:right-[30px] md:top-[280px] md:right-[40px] lg:top-[420px] z-10 text-right">
+      <div className="absolute top-[15%] sm:top-[18%] md:top-[20%] lg:top-[25%] xl:top-[30%] right-[20px] sm:right-[30px] md:right-[40px] z-10 text-right">
         <h2 className="text-[#5B5B5B] text-[36px] sm:text-[56px] md:text-[76px] lg:text-[96px] font-bold leading-tight tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
           EVAN<br />
           SANCHEZ
@@ -46,7 +46,7 @@ export default function CartographyPage() {
       </div>
 
       {/* Subtitle */}
-      <div className="absolute top-[400px] left-[20px] sm:top-[550px] sm:left-[30px] md:top-[750px] md:left-[36px] z-10">
+      <div className="absolute top-[45%] sm:top-[50%] md:top-[55%] lg:top-[60%] xl:top-[65%] left-[20px] sm:left-[30px] md:left-[36px] z-10">
         <h3 className="text-[#333333] text-[16px] sm:text-[22px] md:text-[28px] font-bold tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
           CARTOGRAPHY AS COMMUNICATION
         </h3>
@@ -57,7 +57,7 @@ export default function CartographyPage() {
       </div>
 
       {/* Contact Button */}
-      <div className="absolute top-[520px] right-[20px] sm:top-[680px] sm:right-[30px] md:top-[820px] md:right-[36px] z-10">
+      <div className="absolute top-[65%] sm:top-[70%] md:top-[75%] lg:top-[80%] xl:top-[85%] right-[20px] sm:right-[30px] md:right-[36px] z-10">
         <Link href="/contact">
           <button className="bg-[#B9B9B9] text-black px-[16px] py-[8px] sm:px-[20px] sm:py-[10px] md:px-[24px] md:py-[12px] rounded-lg text-[14px] sm:text-[15px] md:text-[16px] font-bold tracking-[0.05em] hover:bg-[#A9A9A9] transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
             CONTACT
@@ -88,7 +88,7 @@ export default function CartographyPage() {
       </div>
 
       {/* Main Content */}
-      <div className="pt-[600px] sm:pt-[800px] md:pt-[1000px] lg:pt-[1117px]">
+      <div style={{ paddingTop: 'max(100vh, 800px)' }}>
         {/* Large Hero Image - Gondola */}
         <div className="relative w-full">
           {/* Gondola Title and Tools */}
