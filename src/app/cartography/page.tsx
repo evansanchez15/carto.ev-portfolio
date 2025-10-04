@@ -203,6 +203,42 @@ export default function CartographyPage() {
           </div>
         </div>
 
+        {/* Hurricane Milton Tracker */}
+        <div className="relative w-full mb-[100px] sm:mb-[130px] md:mb-[170px] overflow-hidden">
+          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+            <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] mb-[30px] lg:mb-0">
+              <div 
+                className="cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => openModal("/assets/images/portfolio/cartography/HurricaneDash.png")}
+              >
+                <Image
+                  src="/assets/images/portfolio/cartography/HurricaneDash.png"
+                  alt="Hurricane Milton Tracker Dashboard"
+                  width={600}
+                  height={482}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+            
+            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[120px] lg:pr-[20px] xl:pr-[40px]">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
+                <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
+                  Interactive Web Maps - 2024
+                </h4>
+                <p className="text-black text-[6px] xs:text-[7px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] font-bold leading-none text-right whitespace-nowrap flex-shrink-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                  ArcGIS Online, JavaScript, HTML/CSS
+                </p>
+              </div>
+              {/* Horizontal line */}
+              <div className="w-full h-[1px] bg-black mt-2 sm:mt-0 mb-[8px]"></div>
+              <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                Created dashboards that tracked disaster impacts in real time. This Hurricane Milton tracker integrated live weather data, employee location tracking, and business impact assessments to support emergency response coordination across multiple insurance companies in Florida during the 2024 hurricane season.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Unified Health Section */}
         <div className="relative w-full mb-[20px] sm:mb-[25px] md:mb-[30px] overflow-hidden">
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
@@ -212,7 +248,7 @@ export default function CartographyPage() {
                 onClick={() => openModal("/assets/images/portfolio/cartography/Unified1.png")}
               >
                 <Image
-                  src="/assets/images/portfolio/cartography/Unified1.png"
+                  src="/assets/images/portfolio/cartography/Unified5.png"
                   alt="Unified Health Main Dashboard"
                   width={700}
                   height={467}
@@ -245,7 +281,7 @@ export default function CartographyPage() {
               {/* First Row */}
               <div className="relative">
                 <Image
-                  src="/assets/images/portfolio/cartography/Unified5.png"
+                  src="/assets/images/portfolio/cartography/Unified1.png"
                   alt="Unified Map 1"
                   width={331}
                   height={209}
@@ -281,42 +317,6 @@ export default function CartographyPage() {
               </div>
             </div>
           </div>
-          </div>
-        </div>
-
-        {/* Hurricane Milton Tracker */}
-        <div className="relative w-full mb-[100px] sm:mb-[130px] md:mb-[170px] overflow-hidden">
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
-            <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] mb-[30px] lg:mb-0">
-              <div 
-                className="cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={() => openModal("/assets/images/portfolio/cartography/HurricaneDash.png")}
-              >
-                <Image
-                  src="/assets/images/portfolio/cartography/HurricaneDash.png"
-                  alt="Hurricane Milton Tracker Dashboard"
-                  width={600}
-                  height={482}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </div>
-            
-            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[120px] lg:pr-[20px] xl:pr-[40px]">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
-                <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
-                  Interactive Web Maps - 2024
-                </h4>
-                <p className="text-black text-[6px] xs:text-[7px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] font-bold leading-none text-right whitespace-nowrap flex-shrink-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                  ArcGIS Online, JavaScript, HTML/CSS
-                </p>
-              </div>
-              {/* Horizontal line */}
-              <div className="w-full h-[1px] bg-black mt-2 sm:mt-0 mb-[8px]"></div>
-              <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                Created dashboards that tracked disaster impacts in real time. This Hurricane Milton tracker integrated live weather data, employee location tracking, and business impact assessments to support emergency response coordination across multiple insurance companies in Florida during the 2024 hurricane season.
-              </p>
-            </div>
           </div>
         </div>
       </div>
