@@ -151,7 +151,7 @@ export default function ContactPage() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-[#CCCCCC] rounded-lg focus:border-[#666666] focus:outline-none text-[16px]"
+                  className="w-full px-4 py-3 border border-[#CCCCCC] rounded-lg focus:border-[#666666] focus:outline-none text-[16px] text-[#333333]"
                   style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                   required
                   disabled={isSubmitting}
@@ -169,7 +169,7 @@ export default function ContactPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-[#CCCCCC] rounded-lg focus:border-[#666666] focus:outline-none text-[16px]"
+                  className="w-full px-4 py-3 border border-[#CCCCCC] rounded-lg focus:border-[#666666] focus:outline-none text-[16px] text-[#333333]"
                   style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                   required
                   disabled={isSubmitting}
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 border border-[#CCCCCC] rounded-lg focus:border-[#666666] focus:outline-none text-[16px] resize-vertical"
+                  className="w-full px-4 py-3 border border-[#CCCCCC] rounded-lg focus:border-[#666666] focus:outline-none text-[16px] text-[#333333] resize-vertical placeholder:text-[#999999]"
                   style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                   placeholder="Tell me about your project..."
                   required
