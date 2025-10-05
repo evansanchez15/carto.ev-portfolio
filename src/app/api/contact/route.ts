@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import validator from 'validator';
 
+// Contact form API with security features: reCAPTCHA, rate limiting, and input sanitization
 // Simple in-memory rate limiting (resets on server restart)
 // For production, consider using Redis or a database
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
