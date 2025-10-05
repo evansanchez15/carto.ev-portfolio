@@ -59,11 +59,11 @@ export default function ContactPage() {
       if (siteKey && recaptchaLoaded && window.grecaptcha) {
         try {
           recaptchaToken = await window.grecaptcha.execute(siteKey, { action: 'submit' });
+          console.log('reCAPTCHA token obtained successfully');
         } catch (recaptchaError) {
-          console.error('reCAPTCHA error:', recaptchaError);
-          setError('Security verification failed. Please try again.');
-          setIsSubmitting(false);
-          return;
+          console.error('reCAPTCHA client error:', recaptchaError);
+          // Don't block submission - just log the error and continue
+          console.warn('Continuing without reCAPTCHA token');
         }
       }
 
