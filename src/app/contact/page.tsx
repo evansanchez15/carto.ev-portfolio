@@ -92,7 +92,7 @@ export default function ContactPage() {
       } else {
         setError(data.error || 'Failed to send message. Please try again.');
       }
-    } catch (err) {
+    } catch {
       setError('Failed to send message. Please try again.');
     } finally {
       setIsSubmitting(false);
