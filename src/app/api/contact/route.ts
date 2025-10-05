@@ -81,9 +81,22 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
 
     const data = await response.json();
     
+    console.log('reCAPTCHA response:', { 
+      success: data.success, 
+      score: data.score,
+      action: data.action,
+      hostname: data.hostname,
+      errorCodes: data['error-codes']
+    });
+    
     // For reCAPTCHA v3, check score (0.0 to 1.0, higher is more likely human)
     // 0.5 is a reasonable threshold
-    return data.success && data.score >= 0.5;
+    if (data.success && data.score >= 0.5) {
+      return true;
+    }
+    
+    console.warn('reCAPTCHA failed:', data);
+    return false;
   } catch (error) {
     console.error('reCAPTCHA verification error:', error);
     return false;
@@ -122,14 +135,17 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Verify reCAPTCHA
+    // Verify reCAPTCHA (optional - logs warning but doesn't block if verification fails)
     if (recaptchaToken) {
       const isHuman = await verifyRecaptcha(recaptchaToken);
       if (!isHuman) {
-        return NextResponse.json(
-          { error: 'reCAPTCHA verification failed. Please try again.' },
-          { status: 403 }
-        );
+        console.warn('reCAPTCHA verification failed for IP:', ip);
+        // For now, allow submission but log the failure
+        // Uncomment the lines below to strictly enforce reCAPTCHA:
+        // return NextResponse.json(
+        //   { error: 'reCAPTCHA verification failed. Please try again.' },
+        //   { status: 403 }
+        // );
       }
     }
 
