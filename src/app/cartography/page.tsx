@@ -56,7 +56,7 @@ export default function CartographyPage() {
           <div className="flex-1"></div>
           
           {/* Bottom Section - Higher on mobile */}
-          <div className="flex justify-between items-end p-4 sm:p-6 md:p-8 lg:p-12 mb-[100px] sm:mb-[60px] md:mb-0">
+          <div className="flex justify-between items-end p-4 sm:p-6 md:p-8 lg:p-12">
             {/* Subtitle - Bottom Left */}
             <div>
               <h3 className="text-[#333333] text-[18px] sm:text-[18px] md:text-[24px] lg:text-[28px] font-bold tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
