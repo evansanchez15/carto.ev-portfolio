@@ -115,7 +115,7 @@ export default function CartographyPage() {
               </p>
             </div>
             {/* Horizontal line */}
-            <div className="w-full h-[1px] bg-black mt-2 sm:mt-0"></div>
+            <div className="w-full h-[1px] bg-black mt-1"></div>
           </div>
           
           <div className="mx-[20px] sm:mx-[40px] md:mx-[75px] mb-[150px] sm:mb-[200px] md:mb-[250px]">
@@ -160,7 +160,7 @@ export default function CartographyPage() {
                 </p>
               </div>
                   {/* Horizontal line */}
-                  <div className="w-full h-[1px] bg-black mt-2 sm:mt-0 mb-[8px]"></div>
+                  <div className="w-full h-[1px] bg-black mt-1 mb-[8px]"></div>
                   <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                     This project visualizes the political geography of Utah and Salt Lake City during the 2024 U.S. presidential election. County and precinct-level maps highlight the stark urban–rural divide, showing Salt Lake City as a Democratic enclave in an otherwise Republican state.
                   </p>
@@ -195,7 +195,7 @@ export default function CartographyPage() {
                 </p>
               </div>
               {/* Horizontal line */}
-              <div className="w-full h-[1px] bg-black mt-2 sm:mt-0 mb-[8px]"></div>
+              <div className="w-full h-[1px] bg-black mt-1 mb-[8px]"></div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 This map illustrates the dramatic decline of the Great Salt Lake, which in August 2025 reached its lowest recorded level. The map combines shaded relief with hydrological datasets to compare historical extents (1984, average, 2024) against the current shoreline. A timeline chart beneath the map contextualizes the lake&apos;s fall relative to historical averages, presenting both geographic and temporal dimensions of the crisis.
               </p>
@@ -231,7 +231,7 @@ export default function CartographyPage() {
                 </p>
               </div>
               {/* Horizontal line */}
-              <div className="w-full h-[1px] bg-black mt-2 sm:mt-0 mb-[8px]"></div>
+              <div className="w-full h-[1px] bg-black mt-1 mb-[8px]"></div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 Created dashboards that tracked disaster impacts in real time. This Hurricane Milton tracker integrated live weather data, employee location tracking, and business impact assessments to support emergency response coordination across multiple insurance companies in Florida during the 2024 hurricane season.
               </p>
@@ -267,7 +267,7 @@ export default function CartographyPage() {
                 </p>
               </div>
               {/* Horizontal line */}
-              <div className="w-full h-[1px] bg-black mt-2 sm:mt-0 mb-[8px]"></div>
+              <div className="w-full h-[1px] bg-black mt-1 mb-[8px]"></div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 To support lead management and enrollment tracking at Unified Health, I designed interactive dashboards and geographic maps that visualize call center performance, Medicare Advantage enrollment trends, and LIS/SEP eligibility patterns. These dashboards integrate large-scale lead data with FIPS-level geography, enabling teams to filter by state, county, and product type. Automated SQL pipelines ensure daily refresh, while spatial layers highlight enrollment distribution and market opportunities.
               </p>
