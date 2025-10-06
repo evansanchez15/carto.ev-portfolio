@@ -106,7 +106,7 @@ export default function CartographyPage() {
         <div className="relative w-full">
           {/* Gondola Title and Tools */}
           <div className="mx-[20px] sm:mx-[40px] md:mx-[75px] mb-[40px] md:mb-[60px]">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-0">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-1 sm:gap-0">
               <h4 className="text-black text-[18px] sm:text-[20px] md:text-[24px] font-italic tracking-[0.05em] leading-none" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                 The Gondola - 2025
               </h4>
@@ -115,7 +115,7 @@ export default function CartographyPage() {
               </p>
             </div>
             {/* Horizontal line */}
-            <div className="w-full h-[1px] bg-black mt-1"></div>
+            <div className="w-full h-[1px] bg-black mt-[2px]"></div>
           </div>
           
           <div className="mx-[20px] sm:mx-[40px] md:mx-[75px] mb-[150px] sm:mb-[200px] md:mb-[250px]">
@@ -151,7 +151,7 @@ export default function CartographyPage() {
                 </div>
                 
                 <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[200px] lg:pr-[20px] xl:pr-[40px] mt-[-20px] lg:mt-0">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-1 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Election Mapping - 2025
                 </h4>
@@ -160,7 +160,7 @@ export default function CartographyPage() {
                 </p>
               </div>
                   {/* Horizontal line */}
-                  <div className="w-full h-[1px] bg-black mt-1 mb-[8px]"></div>
+                  <div className="w-full h-[1px] bg-black mt-[2px] mb-[8px]"></div>
                   <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                     This project visualizes the political geography of Utah and Salt Lake City during the 2024 U.S. presidential election. County and precinct-level maps highlight the stark urban–rural divide, showing Salt Lake City as a Democratic enclave in an otherwise Republican state.
                   </p>
@@ -186,7 +186,7 @@ export default function CartographyPage() {
                   </div>
                 </div>
             <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[400px] lg:pr-[20px] xl:pr-[40px] mt-[-20px] lg:mt-0">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-1 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   The Great Salt Lake - 2025
                 </h4>
@@ -195,7 +195,7 @@ export default function CartographyPage() {
                 </p>
               </div>
               {/* Horizontal line */}
-              <div className="w-full h-[1px] bg-black mt-1 mb-[8px]"></div>
+              <div className="w-full h-[1px] bg-black mt-[2px] mb-[8px]"></div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 This map illustrates the dramatic decline of the Great Salt Lake, which in August 2025 reached its lowest recorded level. The map combines shaded relief with hydrological datasets to compare historical extents (1984, average, 2024) against the current shoreline. A timeline chart beneath the map contextualizes the lake&apos;s fall relative to historical averages, presenting both geographic and temporal dimensions of the crisis.
               </p>
@@ -222,7 +222,7 @@ export default function CartographyPage() {
             </div>
             
             <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[120px] lg:pr-[20px] xl:pr-[40px] mt-[-20px] lg:mt-0">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-1 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Interactive Web Maps - 2024
                 </h4>
@@ -231,7 +231,7 @@ export default function CartographyPage() {
                 </p>
               </div>
               {/* Horizontal line */}
-              <div className="w-full h-[1px] bg-black mt-1 mb-[8px]"></div>
+              <div className="w-full h-[1px] bg-black mt-[2px] mb-[8px]"></div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 Created dashboards that tracked disaster impacts in real time. This Hurricane Milton tracker integrated live weather data, employee location tracking, and business impact assessments to support emergency response coordination across multiple insurance companies in Florida during the 2024 hurricane season.
               </p>
@@ -258,7 +258,7 @@ export default function CartographyPage() {
             </div>
             
             <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[0px] lg:pr-[20px] xl:pr-[40px] mt-[-20px] lg:mt-0">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-1 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Unified Health - 2025
                 </h4>
@@ -267,7 +267,7 @@ export default function CartographyPage() {
                 </p>
               </div>
               {/* Horizontal line */}
-              <div className="w-full h-[1px] bg-black mt-1 mb-[8px]"></div>
+              <div className="w-full h-[1px] bg-black mt-[2px] mb-[8px]"></div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 To support lead management and enrollment tracking at Unified Health, I designed interactive dashboards and geographic maps that visualize call center performance, Medicare Advantage enrollment trends, and LIS/SEP eligibility patterns. These dashboards integrate large-scale lead data with FIPS-level geography, enabling teams to filter by state, county, and product type. Automated SQL pipelines ensure daily refresh, while spatial layers highlight enrollment distribution and market opportunities.
               </p>
