@@ -11,6 +11,10 @@ const archivoBlack = Archivo_Black({
 export const metadata: Metadata = {
   title: "Evan Sanchez - Photography & Cartography Portfolio",
   description: "Photography and cartography portfolio by Evan Sanchez",
+  icons: {
+    icon: '/assets/images/portfolio/photography/contact.jpeg',
+    apple: '/assets/images/portfolio/photography/contact.jpeg',
+  },
 };
 
 export default function RootLayout({
