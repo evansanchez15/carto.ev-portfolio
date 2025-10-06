@@ -55,14 +55,14 @@ export default function CartographyPage() {
           {/* Spacer to push bottom content down */}
           <div className="flex-1"></div>
           
-          {/* Bottom Section - Back to original position */}
-          <div className="flex justify-between items-end p-4 sm:p-6 md:p-8 lg:p-12">
+          {/* Bottom Section - Higher on mobile */}
+          <div className="flex justify-between items-end p-4 sm:p-6 md:p-8 lg:p-12 mb-[100px] sm:mb-[60px] md:mb-0">
             {/* Subtitle - Bottom Left */}
             <div>
-              <h3 className="text-[#333333] text-[14px] sm:text-[18px] md:text-[24px] lg:text-[28px] font-bold tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <h3 className="text-[#333333] text-[18px] sm:text-[18px] md:text-[24px] lg:text-[28px] font-bold tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 CARTOGRAPHY AS COMMUNICATION
               </h3>
-              <p className="text-[#242424] text-[10px] sm:text-[14px] md:text-[18px] lg:text-[20px] font-bold tracking-[0.05em] mt-2 sm:mt-3 md:mt-4" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <p className="text-[#242424] text-[14px] sm:text-[14px] md:text-[18px] lg:text-[20px] font-bold tracking-[0.05em] mt-2 sm:mt-3 md:mt-4" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 Designing clear maps that inform journalism,<br />
                 research, and impact
               </p>
@@ -70,7 +70,7 @@ export default function CartographyPage() {
             
             {/* Contact Button - Bottom Right */}
             <Link href="/contact">
-              <button className="bg-[#B9B9B9] text-black px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-lg text-[12px] sm:text-[14px] md:text-[16px] font-bold tracking-[0.05em] hover:bg-[#A9A9A9] transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <button className="bg-[#B9B9B9] text-black px-4 py-3 sm:px-4 sm:py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 rounded-lg text-[14px] sm:text-[14px] md:text-[16px] font-bold tracking-[0.05em] hover:bg-[#A9A9A9] transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 CONTACT
               </button>
             </Link>
