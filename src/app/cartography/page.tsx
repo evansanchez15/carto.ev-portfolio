@@ -18,14 +18,14 @@ export default function CartographyPage() {
   return (
     <div className="min-h-screen bg-[#FEFFFE] relative overflow-x-hidden">
       {/* Hero Section Container */}
-      <div className="relative w-full h-screen min-h-[600px] max-h-[1200px] overflow-hidden">
+      <div className="relative w-full h-[85vh] sm:h-[90vh] md:h-screen min-h-[500px] max-h-[1200px] overflow-hidden">
         {/* Topographic Background */}
         <div className="absolute inset-0 opacity-80">
           <Image
             src="/assets/images/portfolio/cartography/Contour3.svg"
             alt="Topographic contour lines background"
             fill
-            className="object-cover object-center"
+            className="object-cover object-top md:object-center"
             style={{ zIndex: 0 }}
           />
         </div>
