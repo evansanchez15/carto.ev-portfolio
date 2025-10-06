@@ -36,7 +36,7 @@ export default function CartographyPage() {
           <div className="flex justify-start items-start p-4 sm:p-6 md:p-8 lg:p-12">
             {/* Brand Name - Top Left */}
             <Link href="/">
-              <h1 className="text-[#424242] text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
+              <h1 className="text-[#424242] text-[56px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
                 CARTO.EV
               </h1>
             </Link>
