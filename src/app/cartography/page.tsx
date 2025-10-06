@@ -106,11 +106,11 @@ export default function CartographyPage() {
         <div className="relative w-full">
           {/* Gondola Title and Tools */}
           <div className="mx-[20px] sm:mx-[40px] md:mx-[75px] mb-[40px] md:mb-[60px]">
-            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0 sm:gap-0 border-b border-black pb-0 mb-[4px]">
-              <h4 className="text-black text-[18px] sm:text-[20px] md:text-[24px] font-italic tracking-[0.05em] leading-none mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0 sm:gap-4 border-b border-black pb-0 mb-[4px]">
+              <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                 The Gondola - 2025
               </h4>
-              <p className="text-black text-[16px] sm:text-[18px] md:text-[24px] font-bold leading-none mt-0 sm:mt-0 mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <p className="text-black text-[10px] xs:text-[10px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] font-bold leading-none text-right whitespace-nowrap flex-shrink-0 mt-0 sm:mt-0 mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 QGIS, Adobe Illustrator, Excel
               </p>
             </div>
