@@ -29,7 +29,7 @@ export default function PhotographyPage() {
         </div>
 
             {/* Header Text */}
-            <div className="absolute top-[40%] right-[20px] sm:right-[50px] md:top-[305px] md:right-[136px] z-10 text-right">
+            <div className="absolute top-[32%] sm:top-[40%] right-[20px] sm:right-[50px] md:top-[305px] md:right-[136px] z-10 text-right">
               <Link href="/">
                 <h1 className="text-white text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-gray-200 transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                   CARTO.EV
@@ -41,7 +41,7 @@ export default function PhotographyPage() {
             </div>
 
             {/* Left Side Vertical Text - Evan Sanchez */}
-            <div className="absolute left-[15px] sm:left-[25px] md:left-[40px] bottom-[60px] sm:bottom-[80px] md:top-[900px] z-10">
+            <div className="absolute left-[15px] sm:left-[25px] md:left-[40px] bottom-[40px] sm:bottom-[80px] md:top-[900px] z-10">
               <div className="transform -rotate-90 origin-left">
                 <h3 className="text-white text-[10px] sm:text-[11px] md:text-[12px] font-normal tracking-normal whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                   EVAN SANCHEZ
@@ -50,7 +50,7 @@ export default function PhotographyPage() {
             </div>
 
             {/* Left Side Vertical Text - Coordinates */}
-            <div className="absolute left-[15px] sm:left-[25px] md:left-[40px] bottom-[120px] sm:bottom-[150px] md:top-[750px] z-10">
+            <div className="absolute left-[15px] sm:left-[25px] md:left-[40px] bottom-[140px] sm:bottom-[150px] md:top-[750px] z-10">
               <div className="transform -rotate-90 origin-left">
                 <p className="text-white text-[10px] sm:text-[11px] md:text-[12px] font-normal tracking-normal whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                   40.532602, -111.713069
@@ -185,8 +185,12 @@ export default function PhotographyPage() {
             grid-template-columns: 1fr;
           }
           
+          .column-1 {
+            grid-column: 1;
+          }
+          
           .column-2 {
-            display: none;
+            grid-column: 1;
           }
           
           .photography-grid-container {
