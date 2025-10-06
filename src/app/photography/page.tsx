@@ -35,7 +35,7 @@ export default function PhotographyPage() {
                   CARTO.EV
                 </h1>
               </Link>
-              <h2 className="text-white text-[10px] sm:text-[12px] md:text-[14px] font-bold tracking-normal mt-1" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <h2 className="text-white text-[14px] sm:text-[16px] md:text-[18px] font-bold tracking-normal mt-1" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 PHOTOGRAPHY
               </h2>
             </div>
