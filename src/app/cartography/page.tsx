@@ -150,7 +150,7 @@ export default function CartographyPage() {
                   </div>
                 </div>
                 
-                <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[200px] lg:pr-[20px] xl:pr-[40px]">
+                <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[200px] lg:pr-[20px] xl:pr-[40px] mt-[-20px] lg:mt-0">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Election Mapping - 2025
@@ -185,7 +185,7 @@ export default function CartographyPage() {
                     />
                   </div>
                 </div>
-            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[400px] lg:pr-[20px] xl:pr-[40px]">
+            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[400px] lg:pr-[20px] xl:pr-[40px] mt-[-20px] lg:mt-0">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   The Great Salt Lake - 2025
@@ -221,7 +221,7 @@ export default function CartographyPage() {
               </div>
             </div>
             
-            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[120px] lg:pr-[20px] xl:pr-[40px]">
+            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[120px] lg:pr-[20px] xl:pr-[40px] mt-[-20px] lg:mt-0">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Interactive Web Maps - 2024
@@ -257,7 +257,7 @@ export default function CartographyPage() {
               </div>
             </div>
             
-            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[0px] lg:pr-[20px] xl:pr-[40px]">
+            <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[0px] lg:pr-[20px] xl:pr-[40px] mt-[-20px] lg:mt-0">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-2 sm:gap-4 overflow-hidden">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none sm:whitespace-nowrap" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
                   Unified Health - 2025
