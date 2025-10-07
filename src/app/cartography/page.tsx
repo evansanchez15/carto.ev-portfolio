@@ -340,6 +340,15 @@ export default function CartographyPage() {
             </p>
           </div>
         </div>
+        
+        {/* Contact Button - Centered at Bottom */}
+        <div className="flex justify-center mt-8 sm:mt-10 md:mt-12">
+          <Link href="/contact">
+            <button className="bg-[#424242] text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg text-[14px] sm:text-[16px] font-bold tracking-[0.05em] hover:bg-[#333333] transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              CONTACT
+            </button>
+          </Link>
+        </div>
       </footer>
 
       {/* Modal for Full-Screen Image */}
