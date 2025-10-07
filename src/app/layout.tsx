@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/assets/images/portfolio/photography/contact.jpeg',
-    apple: '/assets/images/portfolio/photography/contact.jpeg',
+    icon: '/assets/images/portfolio/cartography/Circle.png',
+    apple: '/assets/images/portfolio/cartography/Circle.png',
   },
 };
 
