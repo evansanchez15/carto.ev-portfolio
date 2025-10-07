@@ -31,7 +31,7 @@ export default function PhotographyPage() {
             {/* Header Text */}
             <div className="absolute top-[32%] sm:top-[40%] right-[20px] sm:right-[50px] md:top-[305px] md:right-[136px] z-10 text-right">
               <Link href="/">
-                <h1 className="text-white text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-gray-200 transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                <h1 className="text-white text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-gray-200 transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
                   CARTO.EV
                 </h1>
               </Link>
@@ -128,7 +128,7 @@ export default function PhotographyPage() {
           {/* Large Footer Text */}
           <div className="text-left mb-4 sm:mb-0">
             <Link href="/">
-              <h2 className="text-[#424242] text-[60px] sm:text-[90px] md:text-[120px] lg:text-[180px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
+              <h2 className="text-[#424242] text-[60px] sm:text-[90px] md:text-[120px] lg:text-[180px] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
                 CARTO.EV
               </h2>
             </Link>

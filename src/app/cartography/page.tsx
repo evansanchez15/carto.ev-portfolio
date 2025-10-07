@@ -325,7 +325,7 @@ export default function CartographyPage() {
           {/* Large Footer Text */}
           <div className="text-left mb-4 sm:mb-0">
             <Link href="/">
-              <h2 className="text-[#424242] text-[60px] sm:text-[90px] md:text-[120px] lg:text-[180px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
+              <h2 className="text-[#424242] text-[60px] sm:text-[90px] md:text-[120px] lg:text-[180px] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
                 CARTO.EV
               </h2>
             </Link>

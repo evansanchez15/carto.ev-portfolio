@@ -112,7 +112,7 @@ export default function ContactPage() {
       <div className="bg-[#EBEBEB] py-4 sm:py-6 md:py-8">
         <div className="relative flex justify-start items-center pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8">
           <Link href="/" className="inline-block">
-            <h1 className="text-[#424242] text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] font-bold leading-none tracking-[0.05em] hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
+            <h1 className="text-[#424242] text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] font-black leading-none tracking-[0.05em] hover:text-[#626262] transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
               CARTO.EV
             </h1>
           </Link>
