@@ -36,7 +36,7 @@ export default function CartographyPage() {
           <div className="flex justify-start items-start p-4 sm:p-6 md:p-8 lg:p-12">
             {/* Brand Name - Top Left */}
             <Link href="/">
-              <h1 className="text-[#424242] text-[56px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px] font-bold leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'Futura, Arial, sans-serif' }}>
+              <h1 className="text-[#424242] text-[56px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
                 CARTO.EV
               </h1>
             </Link>
@@ -101,7 +101,7 @@ export default function CartographyPage() {
       </div>
 
       {/* Main Content */}
-      <div className="pt-8 sm:pt-12 md:pt-16">
+      <div className="pt-[60px] sm:pt-12 md:pt-16">
         {/* Large Hero Image - Gondola */}
         <div className="relative w-full">
           {/* Gondola Title and Tools */}
@@ -141,7 +141,7 @@ export default function CartographyPage() {
                       QGIS, Adobe Illustrator, Excel
                     </p>
                   </div>
-                  <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[20px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                  <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[10px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                     This project visualizes the political geography of Utah and Salt Lake City during the 2024 U.S. presidential election. County and precinct-level maps highlight the stark urban–rural divide, showing Salt Lake City as a Democratic enclave in an otherwise Republican state.
                   </p>
                 </div>
@@ -179,7 +179,7 @@ export default function CartographyPage() {
                       QGIS, Adobe Illustrator, Excel
                     </p>
                   </div>
-                  <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[20px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                  <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[10px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                     This map illustrates the dramatic decline of the Great Salt Lake, which in August 2025 reached its lowest recorded level. The map combines shaded relief with hydrological datasets to compare historical extents (1984, average, 2024) against the current shoreline. A timeline chart beneath the map contextualizes the lake&apos;s fall relative to historical averages, presenting both geographic and temporal dimensions of the crisis.
                   </p>
                 </div>
@@ -198,9 +198,9 @@ export default function CartographyPage() {
                       className="w-full h-auto object-contain"
                     />
                   </div>
-                </div>
-              </div>
             </div>
+          </div>
+        </div>
 
         {/* Hurricane Milton Tracker */}
         <div className="relative w-full mb-[100px] sm:mb-[130px] md:mb-[170px] overflow-hidden">
@@ -215,7 +215,7 @@ export default function CartographyPage() {
                   ArcGIS Online, JavaScript, HTML/CSS
                 </p>
               </div>
-              <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[20px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[10px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 Created dashboards that tracked disaster impacts in real time. This Hurricane Milton tracker integrated live weather data, employee location tracking, and business impact assessments to support emergency response coordination across multiple insurance companies in Florida during the 2024 hurricane season.
               </p>
             </div>
@@ -251,7 +251,7 @@ export default function CartographyPage() {
                   Power BI, SQL Server, ArcGIS
                 </p>
               </div>
-              <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[20px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[10px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 To support lead management and enrollment tracking at Unified Health, I designed interactive dashboards and geographic maps that visualize call center performance, Medicare Advantage enrollment trends, and LIS/SEP eligibility patterns. These dashboards integrate large-scale lead data with FIPS-level geography, enabling teams to filter by state, county, and product type. Automated SQL pipelines ensure daily refresh, while spatial layers highlight enrollment distribution and market opportunities.
               </p>
             </div>
@@ -271,8 +271,8 @@ export default function CartographyPage() {
                 />
               </div>
             </div>
+            </div>
           </div>
-        </div>
 
           {/* Bottom Grid - Multiple Small Maps */}
           <div className="relative w-full mb-[130px] sm:mb-[150px] md:mb-[170px] mt-[60px] sm:mt-[80px] md:mt-[100px]">
@@ -317,8 +317,8 @@ export default function CartographyPage() {
               </div>
             </div>
           </div>
+          </div>
         </div>
-      </div>
 
       {/* Footer */}
       <footer className="relative bg-[#E4E4E1] py-8 sm:py-12 md:py-16 mt-10 sm:mt-15 md:mt-20">
