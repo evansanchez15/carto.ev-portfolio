@@ -10,7 +10,39 @@ const archivoBlack = Archivo_Black({
 
 export const metadata: Metadata = {
   title: "Evan Sanchez - Photography & Cartography Portfolio",
-  description: "Photography and cartography portfolio by Evan Sanchez",
+  description: "Photography and cartography portfolio by Evan Sanchez. Specializing in visual storytelling through maps and imagery, creating clear impactful visualizations for journalism, research, and advocacy.",
+  keywords: ["photography", "cartography", "portfolio", "Evan Sanchez", "maps", "visual storytelling", "journalism", "GIS", "data visualization"],
+  authors: [{ name: "Evan Sanchez" }],
+  creator: "Evan Sanchez",
+  metadataBase: new URL('https://cartoev.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "Evan Sanchez - Photography & Cartography Portfolio",
+    description: "Photography and cartography portfolio by Evan Sanchez. Specializing in visual storytelling through maps and imagery.",
+    url: 'https://cartoev.com',
+    siteName: 'CARTO.EV',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Evan Sanchez - Photography & Cartography Portfolio",
+    description: "Photography and cartography portfolio by Evan Sanchez",
+    creator: '@carto_ev',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: '/assets/images/portfolio/photography/contact.jpeg',
     apple: '/assets/images/portfolio/photography/contact.jpeg',
