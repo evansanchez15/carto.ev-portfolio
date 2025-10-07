@@ -62,9 +62,8 @@ export default function CartographyPage() {
               <h3 className="text-[#333333] text-[18px] sm:text-[18px] md:text-[24px] lg:text-[28px] font-bold tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 CARTOGRAPHY AS COMMUNICATION
               </h3>
-              <p className="text-[#242424] text-[14px] sm:text-[14px] md:text-[18px] lg:text-[20px] font-bold tracking-[0.05em] mt-2 sm:mt-3 md:mt-4" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                Designing clear maps that inform journalism,<br />
-                research, and impact
+              <p className="text-[#242424] text-[14px] sm:text-[14px] md:text-[18px] lg:text-[20px] font-bold tracking-[0.05em] mt-2 sm:mt-3 md:mt-4 max-w-[280px] sm:max-w-none" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                Designing clear maps that inform journalism, research, and impact
               </p>
             </div>
             
