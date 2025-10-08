@@ -174,7 +174,7 @@ export default function ContactPage() {
                 I&apos;m a cartographer and photographer specializing in data-driven visual storytelling. My work blends GIS analysis with clean, editorial design to create maps and imagery used in journalism, research, and public advocacy.
               </p>
               <p className="text-[#666666] text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed mb-4" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                Tools I work with daily: QGIS, ArcGIS Pro, Adobe Illustrator, Figma, Blender, and LiDAR/DEM workflows. Whether it&apos;s building disaster dashboards, mapping elections, or documenting landscapes, I focus on clarity, accuracy, and impact.
+                Tools I work with daily: <strong>QGIS, ArcGIS Pro, Adobe Illustrator, Figma, Blender, and LiDAR/DEM</strong> workflows. Whether it&apos;s building disaster dashboards, mapping elections, or documenting landscapes, I focus on clarity, accuracy, and impact.
               </p>
               <p className="text-[#666666] text-[14px] sm:text-[16px] md:text-[18px] leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 I help organizations turn complex spatial data into visuals that inform, persuade, and inspire.
