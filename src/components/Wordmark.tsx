@@ -2,8 +2,8 @@ import Link from "next/link";
 import { displayFont } from "./fonts";
 
 type WordmarkProps = {
-  /** Heading level: h1 in page headers and heroes, h2 in the footer. */
-  as?: "h1" | "h2";
+  /** Heading level: h1 in page headers and heroes, h2 in the footer, p where the page has its own h1. */
+  as?: "h1" | "h2" | "p";
   /** Size, colour and hover classes for the heading; these differ per placement. */
   className: string;
   linkClassName?: string;

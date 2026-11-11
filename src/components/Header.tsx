@@ -1,11 +1,17 @@
 import Wordmark from "./Wordmark";
 
+type HeaderProps = {
+  /** The wordmark's element: h1 by default, "p" on pages that have their own h1. */
+  wordmarkAs?: "h1" | "p";
+};
+
 /** Grey header band: wordmark on the left, Instagram on the right. */
-export default function Header() {
+export default function Header({ wordmarkAs = "h1" }: HeaderProps) {
   return (
     <div className="bg-[#EBEBEB] py-4 sm:py-6 md:py-8">
       <div className="relative flex justify-start items-center pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8">
         <Wordmark
+          as={wordmarkAs}
           linkClassName="inline-block"
           className="text-[#424242] text-[40px] sm:text-[60px] md:text-[80px] lg:text-[120px] font-black leading-none tracking-[0.05em] hover:text-[#626262] transition-colors"
         />

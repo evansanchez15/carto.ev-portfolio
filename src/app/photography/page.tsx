@@ -1,30 +1,25 @@
-'use client';
-
 import Image from "next/image";
-import styles from "./photography.module.css";
+import Link from "next/link";
+import ContactPrompt from "@/components/ContactPrompt";
 import Footer from "@/components/Footer";
 import Wordmark from "@/components/Wordmark";
-import { getPhoto } from "@/content/photography";
-import { photoImages, type PhotoFile } from "@/content/photo-images";
+import { displayFont } from "@/components/fonts";
+import { getPhoto, publishedSeries } from "@/content/photography";
+import { photoImages } from "@/content/photo-images";
+import { ogImages, pageMetadata } from "../page-metadata";
 
-// Grid order. The two columns are balanced by shape so they end at the same height
-// (landscape ~0.663 of the column width tall, portrait ~1.508); keep them balanced
-// when moving frames. On mobile the single column shows column1, then column2.
-const column1: PhotoFile[] = [
-  "photo25.jpg", "photo1.jpg", "photo18.jpg", "photo19.jpg", "photo6.jpg", "photo9.jpg",
-  "photo10.jpg", "photo11.jpg", "photo13.jpg", "photo28.jpg", "photo8.jpg", "photo3.jpg",
-];
-
-const column2: PhotoFile[] = [
-  "photo4.jpg", "photo16.jpg", "photo17.jpg", "photo21.jpg", "photo22.jpg", "photo23.jpg",
-  "photo26.jpg", "photo12.jpg", "photo14.jpg", "photo30.jpg", "photo20.jpg", "photo5.jpg",
-];
+export const metadata = pageMetadata({
+  title: "Photography",
+  description: "Outdoor and lifestyle photography on 35mm film by Evan Sanchez: the Wasatch, Iceland and Hawaii.",
+  path: "/photography",
+  image: ogImages.photography,
+});
 
 const hero = getPhoto("photo24.jpg");
 const heroInset = getPhoto("photo27.jpg");
 
-// Grid columns are ~686px wide at most (1400px container), full width below 768px.
-const gridSizes = "(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 690px";
+// Same container as the series pages, aligned with the header and footer padding.
+const container = "mx-auto max-w-[1440px] px-4 sm:px-6 md:px-8";
 
 export default function PhotographyPage() {
   return (
@@ -41,7 +36,7 @@ export default function PhotographyPage() {
           className="object-cover"
           priority
         />
-        
+
         {/* Top Right Corner Image */}
         <div className="absolute top-[20px] right-[20px] sm:top-[30px] sm:right-[50px] md:top-[49px] md:right-[182px] z-10">
           <Image
@@ -83,38 +78,38 @@ export default function PhotographyPage() {
             </div>
       </div>
 
-      {/* Photo Grid Section */}
-      <div className={styles.photographyGridContainer}>
-        <div className={styles.photographyGrid}>
-          {/* Column 1 - Left */}
-          <div className={styles.column1}>
-            {column1.map(getPhoto).map((photo) => (
-              <div key={photo.file} className={styles.photoItem}>
-                <Image
-                  src={photoImages[photo.file]}
-                  alt={photo.alt}
-                  sizes={gridSizes}
-                  placeholder="blur"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            ))}
-          </div>
+      {/* Series index: one card per published series */}
+      <div className={`${container} pt-12 sm:pt-16 md:pt-20`}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 sm:gap-y-12">
+          {publishedSeries.map((s) => {
+            const cover = getPhoto(s.cover);
+            return (
+              <Link key={s.slug} href={`/photography/${s.slug}`} className="group block">
+                <div className="relative aspect-[3/2] overflow-hidden bg-[#E4E4E1]">
+                  <Image
+                    src={photoImages[cover.file]}
+                    alt={cover.alt}
+                    fill
+                    sizes="(min-width: 1440px) 443px, (min-width: 768px) 33vw, 100vw"
+                    placeholder="blur"
+                    className="object-cover"
+                  />
+                </div>
+                <h2
+                  className="text-[#424242] text-[24px] sm:text-[28px] md:text-[24px] lg:text-[32px] leading-none tracking-[0.05em] uppercase mt-3 sm:mt-4 group-hover:text-[#626262] transition-colors"
+                  style={displayFont}
+                >
+                  {s.title}
+                </h2>
+              </Link>
+            );
+          })}
+        </div>
+      </div>
 
-          {/* Column 2 - Right */}
-          <div className={styles.column2}>
-            {column2.map(getPhoto).map((photo) => (
-              <div key={photo.file} className={styles.photoItem}>
-                <Image
-                  src={photoImages[photo.file]}
-                  alt={photo.alt}
-                  sizes={gridSizes}
-                  placeholder="blur"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            ))}
-          </div>
+      <div className={`${container} mt-20 sm:mt-28 lg:mt-40`}>
+        <div className="border-t border-black pt-8 sm:pt-10 md:pt-12">
+          <ContactPrompt />
         </div>
       </div>
 

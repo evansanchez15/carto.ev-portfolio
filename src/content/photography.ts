@@ -265,6 +265,21 @@ export const series: Series[] = [
   { slug: "workshop", title: "The Workshop", published: false },
 ];
 
+export type PublishedSeries = Extract<Series, { published: true }>;
+
+/** Series with a page and an index card, in the order above. */
+export const publishedSeries: PublishedSeries[] = series.filter((s): s is PublishedSeries => s.published);
+
+export function getPublishedSeries(slug: string): PublishedSeries | undefined {
+  return publishedSeries.find((s) => s.slug === slug);
+}
+
+/** The series after this one on the index, wrapping round to the first. */
+export function nextSeries(slug: SeriesSlug): PublishedSeries {
+  const i = publishedSeries.findIndex((s) => s.slug === slug);
+  return publishedSeries[(i + 1) % publishedSeries.length];
+}
+
 export function getPhoto(file: PhotoFile): Photo {
   const photo = photos.find((p) => p.file === file);
   if (!photo) throw new Error(`No entry for ${file} in src/content/photography.ts`);

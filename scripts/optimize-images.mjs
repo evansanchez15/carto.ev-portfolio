@@ -27,6 +27,10 @@ const extras = [
 // 1200x630 Open Graph images (centre crop), referenced from route metadata.
 const ogImages = [
   { src: "portfolio/photography/photo24.jpg", out: "og/photo24.jpg" },
+  // Series covers (src/content/photography.ts), used by /photography/[series].
+  { src: "portfolio/photography/photo26.jpg", out: "og/photo26.jpg" },
+  { src: "portfolio/photography/photo6.jpg", out: "og/photo6.jpg" },
+  { src: "portfolio/photography/photo20.jpg", out: "og/photo20.jpg" },
   { src: "portfolio/cartography/GondolaFinal.png", out: "og/cartography.jpg" },
 ];
 
