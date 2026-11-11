@@ -5,6 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Wordmark from "@/components/Wordmark";
+import { getProject } from "@/content/cartography";
+
+const gondola = getProject("gondola");
+const election = getProject("election");
+const greatSaltLake = getProject("great-salt-lake");
+const hurricane = getProject("hurricane-milton");
+const unified = getProject("unified-health");
 
 export default function CartographyPage() {
   const [modalImage, setModalImage] = useState<string | null>(null);
@@ -106,20 +113,20 @@ export default function CartographyPage() {
           <div className="mx-[20px] sm:mx-[40px] md:mx-[75px] mb-[40px] md:mb-[60px]">
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0 sm:gap-x-4 sm:flex-wrap border-b border-black pb-0 mb-[4px]">
               <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
-                The Gondola - 2025
+                {`${gondola.title} - ${gondola.year}`}
               </h4>
               <p className="text-black text-[10px] xs:text-[10px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] font-bold leading-none text-right min-w-0 sm:ml-auto mt-0 sm:mt-0 mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                QGIS, Adobe Illustrator, Excel
+                {gondola.tools}
               </p>
             </div>
           </div>
           
           <div className="mx-[20px] sm:mx-[40px] md:mx-[75px] mb-[150px] sm:mb-[200px] md:mb-[250px]">
             <Image
-              src="/assets/images/optimized/cartography/GondolaFinal.png"
-              alt="Gondola Cartography Project"
-              width={1578}
-              height={1081}
+              src={gondola.image.src}
+              alt={gondola.image.alt}
+              width={gondola.image.width}
+              height={gondola.image.height}
               sizes="(min-width: 768px) calc(100vw - 150px), (min-width: 640px) calc(100vw - 80px), calc(100vw - 40px)"
               className="w-full h-auto object-contain"
             />
@@ -133,14 +140,14 @@ export default function CartographyPage() {
                 <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[200px] lg:pr-[20px] xl:pr-[40px] order-1 lg:order-2">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0 sm:gap-x-4 sm:flex-wrap overflow-hidden border-b border-black pb-0 mb-[4px]">
                     <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
-                      Election Mapping - 2025
+                      {`${election.title} - ${election.year}`}
                     </h4>
                     <p className="text-black text-[10px] xs:text-[10px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] font-bold leading-none text-right min-w-0 sm:ml-auto mt-0 sm:mt-0 mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                      QGIS, Adobe Illustrator, Excel
+                      {election.tools}
                     </p>
                   </div>
                   <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[10px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                    This project visualizes the political geography of Utah and Salt Lake City during the 2024 U.S. presidential election. County and precinct-level maps highlight the stark urban–rural divide, showing Salt Lake City as a Democratic enclave in an otherwise Republican state.
+                    {election.description}
                   </p>
                 </div>
                 
@@ -148,11 +155,11 @@ export default function CartographyPage() {
                 <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] order-2 lg:order-1">
                   <div 
                     className="cursor-pointer hover:opacity-90 transition-opacity"
-                    onClick={() => openModal("/assets/images/optimized/cartography/utah-election-2024.png")}
+                    onClick={() => openModal(election.modalSrc)}
                   >
                     <img
-                      src="/assets/images/optimized/cartography/utah-election-2024-1400.webp"
-                      alt="2024 Presidential Election by County Utah"
+                      src={election.image.src}
+                      alt={election.image.alt}
                       loading="lazy"
                       decoding="async"
                       style={{ 
@@ -173,14 +180,14 @@ export default function CartographyPage() {
                 <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[400px] lg:pr-[20px] xl:pr-[40px] order-1 lg:order-2">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0 sm:gap-x-4 sm:flex-wrap overflow-hidden border-b border-black pb-0 mb-[4px]">
                     <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
-                      The Great Salt Lake - 2025
+                      {`${greatSaltLake.title} - ${greatSaltLake.year}`}
                     </h4>
                     <p className="text-black text-[10px] xs:text-[10px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] font-bold leading-none text-right min-w-0 sm:ml-auto mt-0 sm:mt-0 mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                      QGIS, Adobe Illustrator, Excel
+                      {greatSaltLake.tools}
                     </p>
                   </div>
                   <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[10px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                    This map illustrates the dramatic decline of the Great Salt Lake, which in August 2025 reached its lowest recorded level. The map combines shaded relief with hydrological datasets to compare historical extents (1984, average, 2024) against the current shoreline. A timeline chart beneath the map contextualizes the lake&apos;s fall relative to historical averages, presenting both geographic and temporal dimensions of the crisis.
+                    {greatSaltLake.description}
                   </p>
                 </div>
                 
@@ -188,13 +195,13 @@ export default function CartographyPage() {
                 <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] order-2 lg:order-1">
                   <div 
                     className="cursor-pointer hover:opacity-90 transition-opacity"
-                    onClick={() => openModal("/assets/images/optimized/cartography/GreatSaltLakeFinal.png")}
+                    onClick={() => openModal(greatSaltLake.modalSrc)}
                   >
                     <Image
-                      src="/assets/images/optimized/cartography/GreatSaltLakeFinal.png"
-                      alt="Great Salt Lake Cartography"
-                      width={717}
-                      height={1043}
+                      src={greatSaltLake.image.src}
+                      alt={greatSaltLake.image.alt}
+                      width={greatSaltLake.image.width}
+                      height={greatSaltLake.image.height}
                       sizes="(min-width: 1280px) 700px, (min-width: 1024px) 600px, 100vw"
                       className="w-full h-auto object-contain"
                     />
@@ -210,14 +217,14 @@ export default function CartographyPage() {
             <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[120px] lg:pr-[20px] xl:pr-[40px] order-1 lg:order-2">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0 sm:gap-x-4 sm:flex-wrap overflow-hidden border-b border-black pb-0 mb-[4px]">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
-                  Interactive Web Maps - 2024
+                  {`${hurricane.title} - ${hurricane.year}`}
                 </h4>
                 <p className="text-black text-[10px] xs:text-[10px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] font-bold leading-none text-right min-w-0 sm:ml-auto mt-0 sm:mt-0 mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                  ArcGIS Online, JavaScript, HTML/CSS
+                  {hurricane.tools}
                 </p>
               </div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[10px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                Created dashboards that tracked disaster impacts in real time. This Hurricane Milton tracker integrated live weather data, employee location tracking, and business impact assessments to support emergency response coordination across multiple insurance companies in Florida during the 2024 hurricane season.
+                {hurricane.description}
               </p>
             </div>
             
@@ -225,13 +232,13 @@ export default function CartographyPage() {
             <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] order-2 lg:order-1">
               <div 
                 className="cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={() => openModal("/assets/images/optimized/cartography/HurricaneDash.png")}
+                onClick={() => openModal(hurricane.modalSrc)}
               >
                 <Image
-                  src="/assets/images/optimized/cartography/HurricaneDash.png"
-                  alt="Hurricane Milton Tracker Dashboard"
-                  width={600}
-                  height={482}
+                  src={hurricane.image.src}
+                  alt={hurricane.image.alt}
+                  width={hurricane.image.width}
+                  height={hurricane.image.height}
                   sizes="(min-width: 1280px) 700px, (min-width: 1024px) 600px, 100vw"
                   className="w-full h-auto object-contain"
                 />
@@ -247,14 +254,14 @@ export default function CartographyPage() {
             <div className="flex-1 min-w-0 mx-[20px] sm:mx-[40px] lg:mx-[20px] lg:pt-[0px] lg:pr-[20px] xl:pr-[40px] order-1 lg:order-2">
               <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-0 sm:gap-x-4 sm:flex-wrap overflow-hidden border-b border-black pb-0 mb-[4px]">
                 <h4 className="text-black text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] font-italic tracking-[0.05em] leading-none mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontStyle: 'italic' }}>
-                  Unified Health - 2025
+                  {`${unified.title} - ${unified.year}`}
                 </h4>
                 <p className="text-black text-[10px] xs:text-[10px] sm:text-[8px] md:text-[10px] lg:text-[12px] xl:text-[14px] font-bold leading-none text-right min-w-0 sm:ml-auto mt-0 sm:mt-0 mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                  Power BI, SQL Server, ArcGIS
+                  {unified.tools}
                 </p>
               </div>
               <p className="text-[#636363] text-[14px] sm:text-[16px] md:text-[18px] font-bold mb-[10px] lg:mb-0" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                To support lead management and enrollment tracking at Unified Health, I designed interactive dashboards and geographic maps that visualize call center performance, Medicare Advantage enrollment trends, and LIS/SEP eligibility patterns. These dashboards integrate large-scale lead data with FIPS-level geography, enabling teams to filter by state, county, and product type. Automated SQL pipelines ensure daily refresh, while spatial layers highlight enrollment distribution and market opportunities.
+                {unified.description}
               </p>
             </div>
             
@@ -262,13 +269,13 @@ export default function CartographyPage() {
             <div className="mx-[20px] sm:mx-[40px] lg:ml-[75px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] order-2 lg:order-1">
               <div 
                 className="cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={() => openModal("/assets/images/optimized/cartography/Unified1.png")}
+                onClick={() => openModal(unified.modalSrc)}
               >
                 <Image
-                  src="/assets/images/optimized/cartography/Unified5.png"
-                  alt="Unified Health Main Dashboard"
-                  width={700}
-                  height={467}
+                  src={unified.image.src}
+                  alt={unified.image.alt}
+                  width={unified.image.width}
+                  height={unified.image.height}
                   sizes="(min-width: 1280px) 700px, (min-width: 1024px) 600px, 100vw"
                   className="w-full h-auto object-contain"
                 />
@@ -281,43 +288,17 @@ export default function CartographyPage() {
           <div className="relative w-full mb-[130px] sm:mb-[150px] md:mb-[170px] mt-[60px] sm:mt-[80px] md:mt-[100px]">
             <div className="mx-[20px] sm:mx-[40px] md:mx-[61px]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-[40px] sm:gap-[60px] md:gap-[87px]">
-              {/* First Row */}
-              <div className="relative">
-                <Image
-                  src="/assets/images/optimized/cartography/Unified1.png"
-                  alt="Unified Map 1"
-                  width={331}
-                  height={209}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  src="/assets/images/optimized/cartography/Unified2.png"
-                  alt="Unified Map 2"
-                  width={351}
-                  height={245}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  src="/assets/images/optimized/cartography/Unified3.png"
-                  alt="Unified Map 3"
-                  width={321}
-                  height={245}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  src="/assets/images/optimized/cartography/Unified4.png"
-                  alt="Unified Map 4"
-                  width={321}
-                  height={245}
-                  className="w-full h-auto object-contain"
-                />
-              </div>
+              {unified.details.map((detail) => (
+                <div key={detail.src} className="relative">
+                  <Image
+                    src={detail.src}
+                    alt={detail.alt}
+                    width={detail.width}
+                    height={detail.height}
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
+              ))}
             </div>
           </div>
           </div>

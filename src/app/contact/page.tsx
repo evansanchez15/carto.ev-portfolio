@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Header from "@/components/Header";
-import portrait from "../../../public/assets/images/optimized/photography/contact.jpg";
+// Imported directly (not via the photo registry) so this client page bundles one image, not all 31.
+import portraitImage from "../../../public/assets/images/optimized/photography/contact.jpg";
+import { portrait } from "@/content/about";
 import { useState, FormEvent, useEffect } from "react";
 
 // Declare grecaptcha type
@@ -120,8 +122,8 @@ export default function ContactPage() {
             <div className="mb-8">
               <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 mx-auto md:mx-0 relative overflow-hidden rounded-lg">
                 <Image
-                  src={portrait}
-                  alt="Evan Sanchez sitting on a rock on a forest trail, a dog beside him"
+                  src={portraitImage}
+                  alt={portrait.alt}
                   fill
                   sizes="(min-width: 768px) 480px, (min-width: 640px) 384px, 320px"
                   placeholder="blur"

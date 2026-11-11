@@ -1,68 +1,27 @@
 'use client';
 
 import Image from "next/image";
-import type { StaticImageData } from "next/image";
+import styles from "./photography.module.css";
 import Footer from "@/components/Footer";
 import Wordmark from "@/components/Wordmark";
-import styles from "./photography.module.css";
-import photo1 from "../../../public/assets/images/optimized/photography/photo1.jpg";
-import photo3 from "../../../public/assets/images/optimized/photography/photo3.jpg";
-import photo4 from "../../../public/assets/images/optimized/photography/photo4.jpg";
-import photo5 from "../../../public/assets/images/optimized/photography/photo5.jpg";
-import photo6 from "../../../public/assets/images/optimized/photography/photo6.jpg";
-import photo8 from "../../../public/assets/images/optimized/photography/photo8.jpg";
-import photo9 from "../../../public/assets/images/optimized/photography/photo9.jpg";
-import photo10 from "../../../public/assets/images/optimized/photography/photo10.jpg";
-import photo11 from "../../../public/assets/images/optimized/photography/photo11.jpg";
-import photo12 from "../../../public/assets/images/optimized/photography/photo12.jpg";
-import photo13 from "../../../public/assets/images/optimized/photography/photo13.jpg";
-import photo14 from "../../../public/assets/images/optimized/photography/photo14.jpg";
-import photo16 from "../../../public/assets/images/optimized/photography/photo16.jpg";
-import photo17 from "../../../public/assets/images/optimized/photography/photo17.jpg";
-import photo18 from "../../../public/assets/images/optimized/photography/photo18.jpg";
-import photo19 from "../../../public/assets/images/optimized/photography/photo19.jpg";
-import photo20 from "../../../public/assets/images/optimized/photography/photo20.jpg";
-import photo21 from "../../../public/assets/images/optimized/photography/photo21.jpg";
-import photo22 from "../../../public/assets/images/optimized/photography/photo22.jpg";
-import photo23 from "../../../public/assets/images/optimized/photography/photo23.jpg";
-import photo24 from "../../../public/assets/images/optimized/photography/photo24.jpg";
-import photo25 from "../../../public/assets/images/optimized/photography/photo25.jpg";
-import photo26 from "../../../public/assets/images/optimized/photography/photo26.jpg";
-import photo27 from "../../../public/assets/images/optimized/photography/photo27.jpg";
-import photo28 from "../../../public/assets/images/optimized/photography/photo28.jpg";
-import photo30 from "../../../public/assets/images/optimized/photography/photo30.jpg";
+import { getPhoto } from "@/content/photography";
+import { photoImages, type PhotoFile } from "@/content/photo-images";
 
-type Photo = { src: StaticImageData; alt: string };
-
-const column1: Photo[] = [
-  { src: photo25, alt: "Black-and-white view down a jagged granite ridge into a forested valley, Wasatch Range, Utah" },
-  { src: photo1, alt: "Rows of colourful houses on a grassy rise above a calm bay at golden hour, Iceland" },
-  { src: photo18, alt: "A person in light clothes sits in tall grass in front of a mountain range at dusk, Hawaii" },
-  { src: photo19, alt: "Looking up through the spiky leaves of a pandanus tree against a pale sky, Hawaii" },
-  { src: photo6, alt: "A blue corrugated-metal shed with a red roof beside a fjord, snow-streaked mountains behind, Iceland" },
-  { src: photo9, alt: "A person in a cap and olive jacket leans on a railing beside a wide waterfall, Iceland" },
-  { src: photo10, alt: "Two pairs of hiking boots on lichen-covered granite, Wasatch Range, Utah" },
-  { src: photo11, alt: "A person in a black dress stands in a field of purple lupines below snow-capped mountains, Iceland" },
-  { src: photo13, alt: "A person works at a bench in a studio workshop, lined tubs and shelves of supplies around them, seen past a doorframe" },
-  { src: photo28, alt: "Black-and-white: a sheer, striated granite face above a boulder field, Wasatch Range, Utah" },
-  { src: photo8, alt: "A blue rowing boat on a wooden dock beneath a red crane arm, a calm fjord behind, Iceland" },
-  { src: photo3, alt: "A person in a white beanie and olive jacket, seen from behind, looks over a bay of small islands beside red-roofed houses, Iceland" },
+// Grid order. The two columns are balanced by shape so they end at the same height
+// (landscape ~0.663 of the column width tall, portrait ~1.508); keep them balanced
+// when moving frames. On mobile the single column shows column1, then column2.
+const column1: PhotoFile[] = [
+  "photo25.jpg", "photo1.jpg", "photo18.jpg", "photo19.jpg", "photo6.jpg", "photo9.jpg",
+  "photo10.jpg", "photo11.jpg", "photo13.jpg", "photo28.jpg", "photo8.jpg", "photo3.jpg",
 ];
 
-const column2: Photo[] = [
-  { src: photo4, alt: "Houses along a low rocky point on a still bay, a distant headland on the horizon, Iceland" },
-  { src: photo16, alt: "Palm fronds silhouetted against a low sun over the coast, Hawaii" },
-  { src: photo17, alt: "A person in a white top stands with hands behind their head against green mountains and a cloudy sky, Hawaii" },
-  { src: photo21, alt: "Late-summer shrubs in the foreground below rugged grey peaks, Wasatch Range, Utah" },
-  { src: photo22, alt: "A hiker in a navy fleece and backpack stands among granite boulders, mountains behind, Wasatch Range, Utah" },
-  { src: photo23, alt: "Granite boulders above a deep glacial valley and jagged ridgelines, Wasatch Range, Utah" },
-  { src: photo26, alt: "Black-and-white portrait of a hiker with a backpack on a boulder field below a pointed peak, Wasatch Range, Utah" },
-  { src: photo12, alt: "A sailboat anchored on a glassy fjord at dusk, two swimmers nearby and red-lit mountains behind, Iceland" },
-  { src: photo14, alt: "Through a doorway, a person works at a bench at the back of a studio workshop under ventilation ducts" },
-  { src: photo30, alt: "Black-and-white: a hiker in a cap looks up at the sky beside a large granite boulder, Wasatch Range, Utah" },
-  { src: photo20, alt: "A sandstone cliff edge dropping to blue ocean, a small boat on the horizon, Hawaii" },
-  { src: photo5, alt: "A person in shadow sits above a dark crater lake ringed by green hills under heavy cloud, Iceland" },
+const column2: PhotoFile[] = [
+  "photo4.jpg", "photo16.jpg", "photo17.jpg", "photo21.jpg", "photo22.jpg", "photo23.jpg",
+  "photo26.jpg", "photo12.jpg", "photo14.jpg", "photo30.jpg", "photo20.jpg", "photo5.jpg",
 ];
+
+const hero = getPhoto("photo24.jpg");
+const heroInset = getPhoto("photo27.jpg");
 
 // Grid columns are ~686px wide at most (1400px container), full width below 768px.
 const gridSizes = "(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 690px";
@@ -74,8 +33,8 @@ export default function PhotographyPage() {
       <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[1118px] overflow-hidden bg-[#7D887C]">
         {/* Hero Background Image */}
         <Image
-          src={photo24}
-          alt="A hiker with trekking poles crosses a tilted granite ridge under streaked cloud, Wasatch Range, Utah"
+          src={photoImages[hero.file]}
+          alt={hero.alt}
           fill
           sizes="100vw"
           placeholder="blur"
@@ -86,8 +45,8 @@ export default function PhotographyPage() {
         {/* Top Right Corner Image */}
         <div className="absolute top-[20px] right-[20px] sm:top-[30px] sm:right-[50px] md:top-[49px] md:right-[182px] z-10">
           <Image
-            src={photo27}
-            alt="Black-and-white: a hiker in a cap and backpack looks down from a rocky summit ridge, Wasatch Range, Utah"
+            src={photoImages[heroInset.file]}
+            alt={heroInset.alt}
             width={200}
             height={133}
             sizes="(min-width: 768px) 445px, (min-width: 640px) 300px, 200px"
@@ -129,10 +88,10 @@ export default function PhotographyPage() {
         <div className={styles.photographyGrid}>
           {/* Column 1 - Left */}
           <div className={styles.column1}>
-            {column1.map((photo) => (
-              <div key={photo.src.src} className={styles.photoItem}>
+            {column1.map(getPhoto).map((photo) => (
+              <div key={photo.file} className={styles.photoItem}>
                 <Image
-                  src={photo.src}
+                  src={photoImages[photo.file]}
                   alt={photo.alt}
                   sizes={gridSizes}
                   placeholder="blur"
@@ -144,10 +103,10 @@ export default function PhotographyPage() {
 
           {/* Column 2 - Right */}
           <div className={styles.column2}>
-            {column2.map((photo) => (
-              <div key={photo.src.src} className={styles.photoItem}>
+            {column2.map(getPhoto).map((photo) => (
+              <div key={photo.file} className={styles.photoItem}>
                 <Image
-                  src={photo.src}
+                  src={photoImages[photo.file]}
                   alt={photo.alt}
                   sizes={gridSizes}
                   placeholder="blur"
