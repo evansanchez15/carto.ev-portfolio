@@ -24,24 +24,33 @@ const extras = [
   { src: "portfolio/cartography/utah-election-2024.png", out: "cartography/utah-election-2024-1400.webp", width: 1400 },
 ];
 
+// 1200x630 Open Graph images (centre crop), referenced from route metadata.
+const ogImages = [
+  { src: "portfolio/photography/photo24.jpg", out: "og/photo24.jpg" },
+  { src: "portfolio/cartography/GondolaFinal.png", out: "og/cartography.jpg" },
+];
+
 const mb = (bytes) => (bytes / 1048576).toFixed(2).padStart(6) + " MB";
 let totalBefore = 0;
 let totalAfter = 0;
 
-async function write(srcPath, destPath, pipeline) {
+async function write(srcPath, destPath, pipeline, { count = true } = {}) {
   const before = fs.statSync(srcPath).size;
-  if (!force && fs.existsSync(destPath)) {
-    const after = fs.statSync(destPath).size;
+  const tally = (after) => {
+    if (!count) return;
     totalBefore += before;
     totalAfter += after;
+  };
+  if (!force && fs.existsSync(destPath)) {
+    const after = fs.statSync(destPath).size;
+    tally(after);
     console.log(`${mb(before)} -> ${mb(after)}  ${path.relative(outRoot, destPath)} (exists)`);
     return;
   }
   fs.mkdirSync(path.dirname(destPath), { recursive: true });
   await pipeline(sharp(srcPath).rotate()).toFile(destPath);
   const after = fs.statSync(destPath).size;
-  totalBefore += before;
-  totalAfter += after;
+  tally(after);
   console.log(`${mb(before)} -> ${mb(after)}  ${path.relative(outRoot, destPath)}`);
 }
 
@@ -67,4 +76,14 @@ for (const extra of extras) {
   );
 }
 
-console.log(`TOTAL ${mb(totalBefore)} -> ${mb(totalAfter)}`);
+for (const og of ogImages) {
+  await write(path.join(images, og.src), path.join(images, og.out), (img) =>
+    img
+      .flatten({ background: "#ffffff" })
+      .resize({ width: 1200, height: 630, fit: "cover" })
+      .jpeg({ quality: 85, mozjpeg: true }),
+    { count: false },
+  );
+}
+
+console.log(`TOTAL (photos + maps) ${mb(totalBefore)} -> ${mb(totalAfter)}`);

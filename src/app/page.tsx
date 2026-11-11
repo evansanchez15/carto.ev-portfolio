@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import { homePage, pageMetadata } from "./page-metadata";
 import terrain from "../../public/assets/images/optimized/hero/planet-volumes-SO0alFysHTg-unsplash.jpg";
 import coast from "../../public/assets/images/optimized/hero/000017650003-2.jpg";
+
+export const metadata = pageMetadata({ ...homePage, path: "/" });
 
 export default function Home() {
   return (
