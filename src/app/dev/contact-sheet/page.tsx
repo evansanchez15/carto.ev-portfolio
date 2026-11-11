@@ -1,6 +1,6 @@
 // Dev-only contact sheet: every image in public/assets/images/portfolio/photography/,
-// with its filename, approved alt text and place, plus Claude's DRAFT series and
-// select proposals for Evan to review. 404s in production; not in sitemap.ts.
+// with its filename, alt text, place, series and select flag as recorded in
+// src/content/photography.ts. 404s in production; not in sitemap.ts.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -9,9 +9,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { bodyFont, displayFont } from "@/components/fonts";
 import { portrait } from "@/content/about";
-import { photos, type Photo } from "@/content/photography";
+import { getPhoto, homeHero, photos, selects, series, seriesPhotos, type Photo } from "@/content/photography";
 import { photoImages, type PhotoFile } from "@/content/photo-images";
-import { currentUse, draftSeries, proposals } from "./proposals";
 
 export const metadata: Metadata = {
   title: "Contact sheet (dev)",
@@ -21,13 +20,29 @@ export const metadata: Metadata = {
 const originalsDir = path.join(process.cwd(), "public/assets/images/portfolio/photography");
 const sizes = "(min-width: 1280px) 400px, (min-width: 640px) 50vw, 100vw";
 
+/** Where each frame appears on the live site today (everything else is in the /photography grid). */
+const currentUse: Partial<Record<PhotoFile, string>> = {
+  "photo24.jpg": "/photography hero",
+  "photo27.jpg": "/photography hero inset",
+  "photo2.jpg": "not on the site",
+  "photo7.jpg": "not on the site",
+  "photo15.jpg": "not on the site",
+  "photo29.jpg": "not on the site",
+  "contact.jpg": "/contact portrait",
+};
+
 // Optimized copies are always .jpg; the originals may be .jpeg.
 const toOptimizedName = (original: string) => original.replace(/\.jpe?g$/i, ".jpg");
+const seriesTitle = (slug: string) => series.find((s) => s.slug === slug)?.title ?? slug;
+const shortName = (file: string) => file.replace(".jpg", "");
+const coverOf = (file: string) => series.find((s) => s.cover === file);
 
-function Card({ photo, proposal }: { photo: Pick<Photo, "file" | "alt" | "place" | "orientation">; proposal?: { series: string; select?: boolean; note?: string } }) {
+type CardPhoto = Pick<Photo, "file" | "alt" | "place" | "orientation"> & Partial<Photo>;
+
+function Card({ photo }: { photo: CardPhoto }) {
   const use = currentUse[photo.file] ?? "/photography grid";
   return (
-    <figure className="border border-[#D6D6D6] bg-white flex flex-col">
+    <figure className={`border border-[#D6D6D6] bg-white flex flex-col ${photo.dropped ? "opacity-60" : ""}`}>
       <div className="bg-[#EBEBEB] flex items-center justify-center p-2 h-[300px] sm:h-[340px]">
         <Image
           src={photoImages[photo.file]}
@@ -50,22 +65,47 @@ function Card({ photo, proposal }: { photo: Pick<Photo, "file" | "alt" | "place"
           <span className="text-[#666666]">Place: </span>
           {photo.place ?? <em className="text-[#999999]">none in alt text</em>}
         </p>
-        {proposal && (
-          <div className="mt-auto border border-dashed border-[#424242] p-2 bg-[#F6F6F4]">
-            <p className="text-[11px] font-bold tracking-[0.05em] text-[#424242]">DRAFT PROPOSAL, NOT ASSIGNED</p>
-            <p>
-              <span className="text-[#666666]">Series: </span>
-              <strong>{draftSeries.find((s) => s.slug === proposal.series)?.title}</strong>
-              <span className="text-[#666666]"> · Select: </span>
-              <strong>{proposal.select ? "yes" : "no"}</strong>
-            </p>
-            {proposal.note && <p className="text-[#5B5B5B]">{proposal.note}</p>}
-          </div>
+        {photo.series && (
+          <p className="mt-auto pt-2 border-t border-[#E4E4E1]">
+            <span className="text-[#666666]">Series: </span>
+            <strong>{seriesTitle(photo.series)}</strong>
+            <span className="text-[#666666]"> · Select: </span>
+            <strong>{selects.includes(photo.file) ? `#${selects.indexOf(photo.file) + 1}` : "no"}</strong>
+            {coverOf(photo.file) && (
+              <>
+                <span className="text-[#666666]"> · </span>
+                <strong>{coverOf(photo.file)!.title} cover</strong>
+              </>
+            )}
+            {photo.file === homeHero && (
+              <>
+                <span className="text-[#666666]"> · </span>
+                <strong>homepage hero</strong>
+              </>
+            )}
+            {photo.dropped && (
+              <>
+                <span className="text-[#666666]"> · </span>
+                <strong>dropped</strong>
+              </>
+            )}
+          </p>
         )}
       </figcaption>
     </figure>
   );
 }
+
+function SectionHeading({ title, detail }: { title: string; detail: string }) {
+  return (
+    <h2 className="flex flex-wrap items-baseline gap-x-3 border-b border-black pb-1 mb-4">
+      <span className="text-[22px] sm:text-[28px] font-bold tracking-[0.05em] text-[#333333]">{title.toUpperCase()}</span>
+      <span className="text-[12px] text-[#666666] tracking-[0.05em]">{detail.toUpperCase()}</span>
+    </h2>
+  );
+}
+
+const grid = "grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4";
 
 export default function ContactSheetPage() {
   if (process.env.NODE_ENV === "production") notFound();
@@ -74,9 +114,7 @@ export default function ContactSheetPage() {
   const originals = fs.readdirSync(originalsDir).filter((f) => /\.jpe?g$/i.test(f));
   const listed = new Set<string>([...photos.map((p) => p.file), portrait.file]);
   const unlisted = originals.filter((f) => !listed.has(toOptimizedName(f)));
-
-  const byNumber = (a: Photo, b: Photo) => parseInt(a.file.slice(5)) - parseInt(b.file.slice(5));
-  const selects = photos.filter((p) => proposals[p.file as keyof typeof proposals]?.select).sort(byNumber);
+  const dropped = photos.filter((p) => p.dropped);
 
   return (
     <div className="min-h-screen bg-[#FAFAF9] px-4 sm:px-6 md:px-8 py-8" style={bodyFont}>
@@ -89,25 +127,31 @@ export default function ContactSheetPage() {
         <div className="mt-6 max-w-[760px] text-[15px] text-[#424242] leading-relaxed space-y-3">
           <p>
             All {originals.length} images in <code className="text-[13px]">public/assets/images/portfolio/photography/</code>,
-            with the approved alt text and the place taken from it.
+            grouped by series as recorded in <code className="text-[13px]">src/content/photography.ts</code>. Order within a
+            series is the order in that file.
           </p>
-          <p className="border border-dashed border-[#424242] bg-[#F6F6F4] p-3">
-            <strong>Everything in the dashed boxes is a draft.</strong> The series and select flags are Claude&apos;s
-            suggestions from looking at each frame. Nothing is assigned on the site or in{" "}
-            <code className="text-[13px]">src/content/photography.ts</code> until you confirm.
-          </p>
-          <p>Please reply with:</p>
-          <ul className="list-disc pl-6">
-            <li>series names, and which photo goes in each</li>
-            <li>corrections to any place names in the alt text</li>
-            <li>your 8–10 homepage selects</li>
-          </ul>
         </div>
 
-        <div className="mt-6 border border-dashed border-[#424242] bg-[#F6F6F4] p-3 max-w-[760px] text-[14px] text-[#424242]">
-          <p className="text-[11px] font-bold tracking-[0.05em] mb-1">DRAFT SELECTS ({selects.length})</p>
-          <p>{selects.map((p) => p.file.replace(".jpg", "")).join(", ")}</p>
-        </div>
+        <dl className="mt-6 border border-[#D6D6D6] bg-white p-3 max-w-[760px] text-[14px] text-[#424242] space-y-1">
+          <div>
+            <dt className="inline text-[#666666]">Homepage hero: </dt>
+            <dd className="inline">{shortName(homeHero)}</dd>
+          </div>
+          <div>
+            <dt className="inline text-[#666666]">Selects, in order ({selects.length}): </dt>
+            <dd className="inline">{selects.map(shortName).join(", ")}</dd>
+          </div>
+          <div>
+            <dt className="inline text-[#666666]">Covers: </dt>
+            <dd className="inline">
+              {series.map((s) => `${s.title} ${s.cover ? shortName(s.cover) : "(none, not published)"}`).join(" · ")}
+            </dd>
+          </div>
+          <div>
+            <dt className="inline text-[#666666]">Dropped ({dropped.length}): </dt>
+            <dd className="inline">{dropped.map((p) => shortName(p.file)).join(", ")}</dd>
+          </div>
+        </dl>
       </header>
 
       {unlisted.length > 0 && (
@@ -117,17 +161,39 @@ export default function ContactSheetPage() {
         </section>
       )}
 
-      {draftSeries.map((s) => {
-        const group = photos.filter((p) => proposals[p.file as keyof typeof proposals]?.series === s.slug).sort(byNumber);
+      <section className="max-w-[1280px] mx-auto mb-14">
+        <SectionHeading title="Home selects strip" detail={`${selects.length} frames, in display order`} />
+        <ol className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-2">
+          {selects.map((file, i) => (
+            <li key={file} className="flex flex-col gap-1">
+              <div className="bg-[#EBEBEB] aspect-[2/3] flex items-center justify-center p-1">
+                <Image
+                  src={photoImages[file]}
+                  alt={getPhoto(file).alt}
+                  sizes="(min-width: 1024px) 140px, (min-width: 640px) 20vw, 33vw"
+                  placeholder="blur"
+                  className="max-h-full w-auto h-auto object-contain"
+                />
+              </div>
+              <span className="text-[12px] text-[#424242]">
+                <strong>{i + 1}</strong> {shortName(file)}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {series.map((s) => {
+        const group = seriesPhotos(s.slug);
         return (
           <section key={s.slug} className="max-w-[1280px] mx-auto mb-14">
-            <h2 className="flex items-baseline gap-3 border-b border-black pb-1 mb-4">
-              <span className="text-[22px] sm:text-[28px] font-bold tracking-[0.05em] text-[#333333]">{s.title.toUpperCase()}</span>
-              <span className="text-[12px] text-[#666666] tracking-[0.05em]">DRAFT GROUPING · {group.length} FRAMES</span>
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+            <SectionHeading
+              title={s.title}
+              detail={`${group.length} frames · ${s.published ? `published · cover ${shortName(s.cover)}` : "not published yet"}`}
+            />
+            <div className={grid}>
               {group.map((photo) => (
-                <Card key={photo.file} photo={photo} proposal={proposals[photo.file as keyof typeof proposals]} />
+                <Card key={photo.file} photo={photo} />
               ))}
             </div>
           </section>
@@ -135,11 +201,18 @@ export default function ContactSheetPage() {
       })}
 
       <section className="max-w-[1280px] mx-auto mb-14">
-        <h2 className="border-b border-black pb-1 mb-4 text-[22px] sm:text-[28px] font-bold tracking-[0.05em] text-[#333333]">
-          NOT A PORTFOLIO FRAME
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-          <Card photo={{ file: portrait.file as PhotoFile, alt: portrait.alt, orientation: "portrait" }} />
+        <SectionHeading title="Dropped" detail="kept on file, left out of series and selects" />
+        <div className={grid}>
+          {dropped.map((photo) => (
+            <Card key={photo.file} photo={photo} />
+          ))}
+        </div>
+      </section>
+
+      <section className="max-w-[1280px] mx-auto mb-14">
+        <SectionHeading title="Not a portfolio frame" detail="" />
+        <div className={grid}>
+          <Card photo={{ file: portrait.file, alt: portrait.alt, orientation: "portrait" }} />
         </div>
       </section>
     </div>
