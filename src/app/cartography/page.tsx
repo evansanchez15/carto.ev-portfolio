@@ -25,6 +25,7 @@ export default function CartographyPage() {
             src="/assets/images/portfolio/cartography/Contour3.svg"
             alt="Topographic contour lines background"
             fill
+            priority
             className="object-cover object-top md:object-center"
             style={{ zIndex: 0 }}
           />
@@ -121,8 +122,8 @@ export default function CartographyPage() {
               alt="Gondola Cartography Project"
               width={1578}
               height={1081}
+              sizes="(min-width: 768px) calc(100vw - 150px), (min-width: 640px) calc(100vw - 80px), calc(100vw - 40px)"
               className="w-full h-auto object-contain"
-              priority
             />
           </div>
         </div>
@@ -154,6 +155,8 @@ export default function CartographyPage() {
                     <img
                       src="/assets/images/optimized/cartography/utah-election-2024-1400.webp"
                       alt="2024 Presidential Election by County Utah"
+                      loading="lazy"
+                      decoding="async"
                       style={{ 
                         width: '100%', 
                         height: 'auto', 
@@ -194,6 +197,7 @@ export default function CartographyPage() {
                       alt="Great Salt Lake Cartography"
                       width={717}
                       height={1043}
+                      sizes="(min-width: 1280px) 700px, (min-width: 1024px) 600px, 100vw"
                       className="w-full h-auto object-contain"
                     />
                   </div>
@@ -230,6 +234,7 @@ export default function CartographyPage() {
                   alt="Hurricane Milton Tracker Dashboard"
                   width={600}
                   height={482}
+                  sizes="(min-width: 1280px) 700px, (min-width: 1024px) 600px, 100vw"
                   className="w-full h-auto object-contain"
                 />
               </div>
@@ -266,6 +271,7 @@ export default function CartographyPage() {
                   alt="Unified Health Main Dashboard"
                   width={700}
                   height={467}
+                  sizes="(min-width: 1280px) 700px, (min-width: 1024px) 600px, 100vw"
                   className="w-full h-auto object-contain"
                 />
               </div>

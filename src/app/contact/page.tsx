@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import portrait from "../../../public/assets/images/optimized/photography/contact.jpg";
 import { useState, FormEvent, useEffect } from "react";
 
 // Declare grecaptcha type
@@ -157,9 +158,11 @@ export default function ContactPage() {
             <div className="mb-8">
               <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 mx-auto md:mx-0 relative overflow-hidden rounded-lg">
                 <Image
-                  src="/assets/images/optimized/photography/contact.jpg"
+                  src={portrait}
                   alt="Evan Sanchez"
                   fill
+                  sizes="(min-width: 768px) 240px, (min-width: 640px) 192px, 160px"
+                  placeholder="blur"
                   className="object-cover"
                 />
               </div>

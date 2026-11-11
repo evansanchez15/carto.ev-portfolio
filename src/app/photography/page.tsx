@@ -2,17 +2,85 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { StaticImageData } from "next/image";
+import styles from "./photography.module.css";
+import photo1 from "../../../public/assets/images/optimized/photography/photo1.jpg";
+import photo2 from "../../../public/assets/images/optimized/photography/photo2.jpg";
+import photo3 from "../../../public/assets/images/optimized/photography/photo3.jpg";
+import photo4 from "../../../public/assets/images/optimized/photography/photo4.jpg";
+import photo5 from "../../../public/assets/images/optimized/photography/photo5.jpg";
+import photo6 from "../../../public/assets/images/optimized/photography/photo6.jpg";
+import photo8 from "../../../public/assets/images/optimized/photography/photo8.jpg";
+import photo9 from "../../../public/assets/images/optimized/photography/photo9.jpg";
+import photo10 from "../../../public/assets/images/optimized/photography/photo10.jpg";
+import photo11 from "../../../public/assets/images/optimized/photography/photo11.jpg";
+import photo12 from "../../../public/assets/images/optimized/photography/photo12.jpg";
+import photo13 from "../../../public/assets/images/optimized/photography/photo13.jpg";
+import photo14 from "../../../public/assets/images/optimized/photography/photo14.jpg";
+import photo16 from "../../../public/assets/images/optimized/photography/photo16.jpg";
+import photo17 from "../../../public/assets/images/optimized/photography/photo17.jpg";
+import photo18 from "../../../public/assets/images/optimized/photography/photo18.jpg";
+import photo19 from "../../../public/assets/images/optimized/photography/photo19.jpg";
+import photo20 from "../../../public/assets/images/optimized/photography/photo20.jpg";
+import photo21 from "../../../public/assets/images/optimized/photography/photo21.jpg";
+import photo22 from "../../../public/assets/images/optimized/photography/photo22.jpg";
+import photo23 from "../../../public/assets/images/optimized/photography/photo23.jpg";
+import photo24 from "../../../public/assets/images/optimized/photography/photo24.jpg";
+import photo25 from "../../../public/assets/images/optimized/photography/photo25.jpg";
+import photo26 from "../../../public/assets/images/optimized/photography/photo26.jpg";
+import photo27 from "../../../public/assets/images/optimized/photography/photo27.jpg";
+import photo28 from "../../../public/assets/images/optimized/photography/photo28.jpg";
+import photo30 from "../../../public/assets/images/optimized/photography/photo30.jpg";
+
+type Photo = { src: StaticImageData; alt: string };
+
+const column1: Photo[] = [
+  { src: photo25, alt: "Photography portfolio" },
+  { src: photo1, alt: "Photography portfolio" },
+  { src: photo18, alt: "Photography portfolio" },
+  { src: photo19, alt: "Photography portfolio" },
+  { src: photo6, alt: "Photography portfolio" },
+  { src: photo9, alt: "Photography portfolio" },
+  { src: photo10, alt: "Photography portfolio" },
+  { src: photo11, alt: "Photography portfolio" },
+  { src: photo13, alt: "Photography portfolio" },
+  { src: photo28, alt: "Photography portfolio" },
+  { src: photo8, alt: "Photography portfolio" },
+  { src: photo5, alt: "Photography portfolio" },
+];
+
+const column2: Photo[] = [
+  { src: photo4, alt: "Photography portfolio" },
+  { src: photo27, alt: "Photography portfolio" },
+  { src: photo16, alt: "Photography portfolio" },
+  { src: photo17, alt: "Photography portfolio" },
+  { src: photo21, alt: "Photography portfolio" },
+  { src: photo22, alt: "Photography portfolio" },
+  { src: photo23, alt: "Photography portfolio" },
+  { src: photo26, alt: "Photography portfolio" },
+  { src: photo12, alt: "Photography portfolio" },
+  { src: photo14, alt: "Photography portfolio" },
+  { src: photo30, alt: "Photography portfolio" },
+  { src: photo20, alt: "Photography portfolio" },
+  { src: photo2, alt: "Photography portfolio" },
+  { src: photo3, alt: "Photography portfolio" },
+];
+
+// Grid columns are ~686px wide at most (1400px container), full width below 768px.
+const gridSizes = "(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 690px";
 
 export default function PhotographyPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[1118px] overflow-hidden">
+      {/* Hero Section — bg is photo24's average colour, so the first paint is never white */}
+      <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[1118px] overflow-hidden bg-[#7D887C]">
         {/* Hero Background Image */}
         <Image
-          src="/assets/images/optimized/photography/photo24.jpg"
+          src={photo24}
           alt="Photography Hero"
           fill
+          sizes="100vw"
+          placeholder="blur"
           className="object-cover"
           priority
         />
@@ -20,10 +88,13 @@ export default function PhotographyPage() {
         {/* Top Right Corner Image */}
         <div className="absolute top-[20px] right-[20px] sm:top-[30px] sm:right-[50px] md:top-[49px] md:right-[182px] z-10">
           <Image
-            src="/assets/images/optimized/photography/photo27.jpg"
+            src={photo27}
             alt="Portfolio piece"
             width={200}
             height={133}
+            sizes="(min-width: 768px) 445px, (min-width: 640px) 300px, 200px"
+            placeholder="blur"
+            priority
             className="object-cover sm:w-[300px] sm:h-[200px] md:w-[445px] md:h-[295px]"
           />
         </div>
@@ -60,30 +131,17 @@ export default function PhotographyPage() {
       </div>
 
       {/* Photo Grid Section */}
-      <div className="photography-grid-container">
-        <div className="photography-grid">
+      <div className={styles.photographyGridContainer}>
+        <div className={styles.photographyGrid}>
           {/* Column 1 - Left */}
-          <div className="column-1">
-            {[
-              "photo25.jpg",
-              "photo1.jpg",
-              "photo18.jpg", 
-              "photo19.jpg",
-              "photo6.jpg",
-              "photo9.jpg",              
-              "photo10.jpg",
-              "photo11.jpg",
-              "photo13.jpg",
-              "photo28.jpg",
-              "photo8.jpg",
-              "photo5.jpg",
-            ].map((filename) => (
-              <div key={filename} className="photo-item">
+          <div className={styles.column1}>
+            {column1.map((photo) => (
+              <div key={photo.src.src} className={styles.photoItem}>
                 <Image
-                  src={`/assets/images/optimized/photography/${filename}`}
-                  alt="Photography portfolio"
-                  width={600}
-                  height={400}
+                  src={photo.src}
+                  alt={photo.alt}
+                  sizes={gridSizes}
+                  placeholder="blur"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -91,29 +149,14 @@ export default function PhotographyPage() {
           </div>
 
           {/* Column 2 - Right */}
-          <div className="column-2">
-            {[
-              "photo4.jpg",
-              "photo27.jpg",
-              "photo16.jpg",
-              "photo17.jpg",
-              "photo21.jpg",
-              "photo22.jpg",
-              "photo23.jpg",
-              "photo26.jpg", 
-              "photo12.jpg",
-              "photo14.jpg",
-              "photo30.jpg",
-              "photo20.jpg",
-              "photo2.jpg",
-              "photo3.jpg",
-            ].map((filename) => (
-              <div key={filename} className="photo-item">
+          <div className={styles.column2}>
+            {column2.map((photo) => (
+              <div key={photo.src.src} className={styles.photoItem}>
                 <Image
-                  src={`/assets/images/optimized/photography/${filename}`}
-                  alt="Photography portfolio"
-                  width={600}
-                  height={400}
+                  src={photo.src}
+                  alt={photo.alt}
+                  sizes={gridSizes}
+                  placeholder="blur"
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -144,60 +187,6 @@ export default function PhotographyPage() {
           </div>
         </div>
       </footer>
-
-      <style jsx>{`
-        .photography-grid-container {
-          padding: 60px 10px 20px 10px;
-          max-width: 1400px;
-          margin: 0 auto;
-        }
-
-        .photography-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 8px;
-          align-items: start;
-        }
-
-        .photo-item {
-          position: relative;
-          overflow: hidden;
-          border-radius: 0;
-          background: transparent;
-          margin-bottom: 8px;
-        }
-
-        .column-1 {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .column-2 {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        /* Responsive breakpoints */
-        @media (max-width: 768px) {
-          .photography-grid {
-            grid-template-columns: 1fr;
-          }
-          
-          .column-1 {
-            grid-column: 1;
-          }
-          
-          .column-2 {
-            grid-column: 1;
-          }
-          
-          .photography-grid-container {
-            padding: 10px 10px;
-          }
-        }
-      `}</style>
     </div>
   );
 }

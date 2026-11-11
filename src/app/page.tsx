@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import terrain from "../../public/assets/images/optimized/hero/planet-volumes-SO0alFysHTg-unsplash.jpg";
+import coast from "../../public/assets/images/optimized/hero/000017650003-2.jpg";
 
 export default function Home() {
   return (
@@ -28,9 +30,11 @@ export default function Home() {
               {/* Background Image */}
               <div className="absolute inset-0">
                 <Image
-                  src="/assets/images/optimized/hero/planet-volumes-SO0alFysHTg-unsplash.jpg"
+                  src={terrain}
                   alt="Topographical landscape"
                   fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  placeholder="blur"
                   className="object-cover transition-transform duration-500 group-hover:scale-102"
                   priority
                 />
@@ -52,9 +56,11 @@ export default function Home() {
               {/* Background Image */}
               <div className="absolute inset-0">
                 <Image
-                  src="/assets/images/optimized/hero/000017650003-2.jpg"
+                  src={coast}
                   alt="Coastal landscape photography"
                   fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  placeholder="blur"
                   className="object-cover transition-transform duration-500 group-hover:scale-102"
                   priority
                 />
