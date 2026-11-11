@@ -5,7 +5,6 @@ import Link from "next/link";
 import type { StaticImageData } from "next/image";
 import styles from "./photography.module.css";
 import photo1 from "../../../public/assets/images/optimized/photography/photo1.jpg";
-import photo2 from "../../../public/assets/images/optimized/photography/photo2.jpg";
 import photo3 from "../../../public/assets/images/optimized/photography/photo3.jpg";
 import photo4 from "../../../public/assets/images/optimized/photography/photo4.jpg";
 import photo5 from "../../../public/assets/images/optimized/photography/photo5.jpg";
@@ -51,7 +50,6 @@ const column1: Photo[] = [
 
 const column2: Photo[] = [
   { src: photo4, alt: "Photography portfolio" },
-  { src: photo27, alt: "Photography portfolio" },
   { src: photo16, alt: "Photography portfolio" },
   { src: photo17, alt: "Photography portfolio" },
   { src: photo21, alt: "Photography portfolio" },
@@ -62,7 +60,6 @@ const column2: Photo[] = [
   { src: photo14, alt: "Photography portfolio" },
   { src: photo30, alt: "Photography portfolio" },
   { src: photo20, alt: "Photography portfolio" },
-  { src: photo2, alt: "Photography portfolio" },
   { src: photo3, alt: "Photography portfolio" },
 ];
 
