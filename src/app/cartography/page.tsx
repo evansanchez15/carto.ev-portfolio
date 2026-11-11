@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "@/components/Footer";
+import Wordmark from "@/components/Wordmark";
 
 export default function CartographyPage() {
   const [modalImage, setModalImage] = useState<string | null>(null);
@@ -36,11 +38,7 @@ export default function CartographyPage() {
           {/* Top Section - Just CARTO.EV */}
           <div className="flex justify-start items-start p-4 sm:p-6 md:p-8 lg:p-12">
             {/* Brand Name - Top Left */}
-            <Link href="/">
-              <h1 className="text-[#424242] text-[56px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
-                CARTO.EV
-              </h1>
-            </Link>
+            <Wordmark className="text-[#424242] text-[56px] sm:text-[48px] md:text-[64px] lg:text-[96px] xl:text-[128px] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" />
           </div>
           
           {/* Middle Section - EVAN SANCHEZ positioned just ABOVE the green line */}
@@ -325,36 +323,7 @@ export default function CartographyPage() {
           </div>
         </div>
 
-      {/* Footer */}
-      <footer className="relative bg-[#E4E4E1] py-8 sm:py-12 md:py-16 mt-10 sm:mt-15 md:mt-20">
-        <div className="pl-4 sm:pl-6 md:pl-8 flex flex-col sm:flex-row sm:items-end sm:justify-between pr-4 sm:pr-6 md:pr-8">
-          {/* Large Footer Text */}
-          <div className="text-left mb-4 sm:mb-0">
-            <Link href="/">
-              <h2 className="text-[#424242] text-[length:min(60px,calc((100vw_-_36px)/6.1))] sm:text-[length:min(90px,calc((100vw_-_344px)/6.1))] md:text-[length:min(120px,calc((100vw_-_388px)/6.1))] lg:text-[length:min(180px,calc((100vw_-_388px)/6.1))] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
-                CARTO.EV
-              </h2>
-            </Link>
-          </div>
-          
-          {/* Contact Button and Email */}
-          <div className="text-left sm:text-right sm:pb-4 md:pb-6 flex flex-col items-start sm:items-end gap-4">
-            {/* Contact Button */}
-            <Link href="/contact">
-              <button className="bg-[#424242] text-white px-6 py-3 sm:px-8 sm:py-4 rounded-lg text-[14px] sm:text-[16px] font-bold tracking-[0.05em] hover:bg-[#333333] transition-colors" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                CONTACT
-              </button>
-            </Link>
-            
-            {/* Email */}
-            <p className="text-[#424242] text-[16px] sm:text-[18px] md:text-[20px] tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-              <a href="mailto:evanmsanchez15@gmail.com" className="hover:text-[#626262] transition-colors">
-                evanmsanchez15@gmail.com
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer contactButton />
 
       {/* Modal for Full-Screen Image */}
       {modalImage && (

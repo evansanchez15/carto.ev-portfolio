@@ -1,8 +1,9 @@
 'use client';
 
 import Image from "next/image";
-import Link from "next/link";
 import type { StaticImageData } from "next/image";
+import Footer from "@/components/Footer";
+import Wordmark from "@/components/Wordmark";
 import styles from "./photography.module.css";
 import photo1 from "../../../public/assets/images/optimized/photography/photo1.jpg";
 import photo3 from "../../../public/assets/images/optimized/photography/photo3.jpg";
@@ -98,11 +99,7 @@ export default function PhotographyPage() {
 
             {/* Header Text */}
             <div className="absolute top-[32%] sm:top-[40%] right-[20px] sm:right-[50px] md:top-[305px] md:right-[136px] z-10 text-right">
-              <Link href="/">
-                <h1 className="text-white text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-gray-200 transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
-                  CARTO.EV
-                </h1>
-              </Link>
+              <Wordmark className="text-white text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-gray-200 transition-colors" />
               <h2 className="text-white text-[14px] sm:text-[16px] md:text-[18px] font-bold tracking-normal mt-1" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 PHOTOGRAPHY
               </h2>
@@ -162,28 +159,7 @@ export default function PhotographyPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="relative bg-[#E4E4E1] py-8 sm:py-12 md:py-16 mt-10 sm:mt-15 md:mt-20">
-        <div className="pl-4 sm:pl-6 md:pl-8 flex flex-col sm:flex-row sm:items-end sm:justify-between pr-4 sm:pr-6 md:pr-8">
-          {/* Large Footer Text */}
-          <div className="text-left mb-4 sm:mb-0">
-            <Link href="/">
-              <h2 className="text-[#424242] text-[length:min(60px,calc((100vw_-_36px)/6.1))] sm:text-[length:min(90px,calc((100vw_-_344px)/6.1))] md:text-[length:min(120px,calc((100vw_-_388px)/6.1))] lg:text-[length:min(180px,calc((100vw_-_388px)/6.1))] font-black leading-none tracking-[0.05em] cursor-pointer hover:text-[#626262] transition-colors" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>
-                CARTO.EV
-              </h2>
-            </Link>
-          </div>
-          
-          {/* Email */}
-          <div className="text-left sm:text-right sm:pb-4 md:pb-6">
-            <p className="text-[#424242] text-[16px] sm:text-[18px] md:text-[20px] tracking-[0.05em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-              <a href="mailto:evanmsanchez15@gmail.com" className="hover:text-[#626262] transition-colors">
-                evanmsanchez15@gmail.com
-              </a>
-            </p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
