@@ -117,7 +117,7 @@ export default function CartographyPage() {
           
           <div className="mx-[20px] sm:mx-[40px] md:mx-[75px] mb-[150px] sm:mb-[200px] md:mb-[250px]">
             <Image
-              src="/assets/images/portfolio/cartography/GondolaFinal.png"
+              src="/assets/images/optimized/cartography/GondolaFinal.png"
               alt="Gondola Cartography Project"
               width={1578}
               height={1081}
@@ -149,10 +149,10 @@ export default function CartographyPage() {
                 <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] order-2 lg:order-1">
                   <div 
                     className="cursor-pointer hover:opacity-90 transition-opacity"
-                    onClick={() => openModal("/assets/images/portfolio/cartography/utah-election-2024.png")}
+                    onClick={() => openModal("/assets/images/optimized/cartography/utah-election-2024.png")}
                   >
                     <img
-                      src="/assets/images/portfolio/cartography/utah-election-2024.png"
+                      src="/assets/images/optimized/cartography/utah-election-2024-1400.webp"
                       alt="2024 Presidential Election by County Utah"
                       style={{ 
                         width: '100%', 
@@ -187,10 +187,10 @@ export default function CartographyPage() {
                 <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] order-2 lg:order-1">
                   <div 
                     className="cursor-pointer hover:opacity-90 transition-opacity"
-                    onClick={() => openModal("/assets/images/portfolio/cartography/GreatSaltLakeFinal.png")}
+                    onClick={() => openModal("/assets/images/optimized/cartography/GreatSaltLakeFinal.png")}
                   >
                     <Image
-                      src="/assets/images/portfolio/cartography/GreatSaltLakeFinal.png"
+                      src="/assets/images/optimized/cartography/GreatSaltLakeFinal.png"
                       alt="Great Salt Lake Cartography"
                       width={717}
                       height={1043}
@@ -223,10 +223,10 @@ export default function CartographyPage() {
             <div className="mx-[20px] sm:mx-[40px] lg:ml-[170px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] order-2 lg:order-1">
               <div 
                 className="cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={() => openModal("/assets/images/portfolio/cartography/HurricaneDash.png")}
+                onClick={() => openModal("/assets/images/optimized/cartography/HurricaneDash.png")}
               >
                 <Image
-                  src="/assets/images/portfolio/cartography/HurricaneDash.png"
+                  src="/assets/images/optimized/cartography/HurricaneDash.png"
                   alt="Hurricane Milton Tracker Dashboard"
                   width={600}
                   height={482}
@@ -259,10 +259,10 @@ export default function CartographyPage() {
             <div className="mx-[20px] sm:mx-[40px] lg:ml-[75px] lg:mr-[60px] flex-shrink-0 lg:w-[600px] xl:w-[700px] order-2 lg:order-1">
               <div 
                 className="cursor-pointer hover:opacity-90 transition-opacity"
-                onClick={() => openModal("/assets/images/portfolio/cartography/Unified1.png")}
+                onClick={() => openModal("/assets/images/optimized/cartography/Unified1.png")}
               >
                 <Image
-                  src="/assets/images/portfolio/cartography/Unified5.png"
+                  src="/assets/images/optimized/cartography/Unified5.png"
                   alt="Unified Health Main Dashboard"
                   width={700}
                   height={467}
@@ -280,7 +280,7 @@ export default function CartographyPage() {
               {/* First Row */}
               <div className="relative">
                 <Image
-                  src="/assets/images/portfolio/cartography/Unified1.png"
+                  src="/assets/images/optimized/cartography/Unified1.png"
                   alt="Unified Map 1"
                   width={331}
                   height={209}
@@ -289,7 +289,7 @@ export default function CartographyPage() {
               </div>
               <div className="relative">
                 <Image
-                  src="/assets/images/portfolio/cartography/Unified2.png"
+                  src="/assets/images/optimized/cartography/Unified2.png"
                   alt="Unified Map 2"
                   width={351}
                   height={245}
@@ -298,7 +298,7 @@ export default function CartographyPage() {
               </div>
               <div className="relative">
                 <Image
-                  src="/assets/images/portfolio/cartography/Unified3.png"
+                  src="/assets/images/optimized/cartography/Unified3.png"
                   alt="Unified Map 3"
                   width={321}
                   height={245}
@@ -307,7 +307,7 @@ export default function CartographyPage() {
               </div>
               <div className="relative">
                 <Image
-                  src="/assets/images/portfolio/cartography/Unified4.png"
+                  src="/assets/images/optimized/cartography/Unified4.png"
                   alt="Unified Map 4"
                   width={321}
                   height={245}

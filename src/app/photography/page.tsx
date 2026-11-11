@@ -10,7 +10,7 @@ export default function PhotographyPage() {
       <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[1118px] overflow-hidden">
         {/* Hero Background Image */}
         <Image
-          src="/assets/images/portfolio/photography/photo24.jpg"
+          src="/assets/images/optimized/photography/photo24.jpg"
           alt="Photography Hero"
           fill
           className="object-cover"
@@ -20,7 +20,7 @@ export default function PhotographyPage() {
         {/* Top Right Corner Image */}
         <div className="absolute top-[20px] right-[20px] sm:top-[30px] sm:right-[50px] md:top-[49px] md:right-[182px] z-10">
           <Image
-            src="/assets/images/portfolio/photography/photo27.jpg"
+            src="/assets/images/optimized/photography/photo27.jpg"
             alt="Portfolio piece"
             width={200}
             height={133}
@@ -80,7 +80,7 @@ export default function PhotographyPage() {
             ].map((filename) => (
               <div key={filename} className="photo-item">
                 <Image
-                  src={`/assets/images/portfolio/photography/${filename}`}
+                  src={`/assets/images/optimized/photography/${filename}`}
                   alt="Photography portfolio"
                   width={600}
                   height={400}
@@ -110,7 +110,7 @@ export default function PhotographyPage() {
             ].map((filename) => (
               <div key={filename} className="photo-item">
                 <Image
-                  src={`/assets/images/portfolio/photography/${filename}`}
+                  src={`/assets/images/optimized/photography/${filename}`}
                   alt="Photography portfolio"
                   width={600}
                   height={400}

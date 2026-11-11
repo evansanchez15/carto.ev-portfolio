@@ -28,7 +28,7 @@ export default function Home() {
               {/* Background Image */}
               <div className="absolute inset-0">
                 <Image
-                  src="/assets/images/hero/planet-volumes-SO0alFysHTg-unsplash.jpg"
+                  src="/assets/images/optimized/hero/planet-volumes-SO0alFysHTg-unsplash.jpg"
                   alt="Topographical landscape"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-102"
@@ -52,7 +52,7 @@ export default function Home() {
               {/* Background Image */}
               <div className="absolute inset-0">
                 <Image
-                  src="/assets/images/hero/000017650003-2.jpg"
+                  src="/assets/images/optimized/hero/000017650003-2.jpg"
                   alt="Coastal landscape photography"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-102"

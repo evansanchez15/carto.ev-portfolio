@@ -157,7 +157,7 @@ export default function ContactPage() {
             <div className="mb-8">
               <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 mx-auto md:mx-0 relative overflow-hidden rounded-lg">
                 <Image
-                  src="/assets/images/portfolio/photography/contact.jpeg"
+                  src="/assets/images/optimized/photography/contact.jpg"
                   alt="Evan Sanchez"
                   fill
                   className="object-cover"
