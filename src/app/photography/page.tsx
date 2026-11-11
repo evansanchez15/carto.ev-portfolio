@@ -45,7 +45,7 @@ const column1: Photo[] = [
   { src: photo13, alt: "A person works at a bench in a studio workshop, lined tubs and shelves of supplies around them, seen past a doorframe" },
   { src: photo28, alt: "Black-and-white: a sheer, striated granite face above a boulder field, Wasatch Range, Utah" },
   { src: photo8, alt: "A blue rowing boat on a wooden dock beneath a red crane arm, a calm fjord behind, Iceland" },
-  { src: photo5, alt: "A person in shadow sits above a dark crater lake ringed by green hills under heavy cloud, Iceland" },
+  { src: photo3, alt: "A person in a white beanie and olive jacket, seen from behind, looks over a bay of small islands beside red-roofed houses, Iceland" },
 ];
 
 const column2: Photo[] = [
@@ -60,7 +60,7 @@ const column2: Photo[] = [
   { src: photo14, alt: "Through a doorway, a person works at a bench at the back of a studio workshop under ventilation ducts" },
   { src: photo30, alt: "Black-and-white: a hiker in a cap looks up at the sky beside a large granite boulder, Wasatch Range, Utah" },
   { src: photo20, alt: "A sandstone cliff edge dropping to blue ocean, a small boat on the horizon, Hawaii" },
-  { src: photo3, alt: "A person in a white beanie and olive jacket, seen from behind, looks over a bay of small islands beside red-roofed houses, Iceland" },
+  { src: photo5, alt: "A person in shadow sits above a dark crater lake ringed by green hills under heavy cloud, Iceland" },
 ];
 
 // Grid columns are ~686px wide at most (1400px container), full width below 768px.
