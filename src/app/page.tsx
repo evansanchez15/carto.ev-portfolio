@@ -31,7 +31,7 @@ export default function Home() {
               <div className="absolute inset-0">
                 <Image
                   src={terrain}
-                  alt="Topographical landscape"
+                  alt="Shaded-relief terrain map"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   placeholder="blur"
@@ -57,7 +57,7 @@ export default function Home() {
               <div className="absolute inset-0">
                 <Image
                   src={coast}
-                  alt="Coastal landscape photography"
+                  alt="A person in a white beanie looks out over a bay of small islands, Iceland"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   placeholder="blur"

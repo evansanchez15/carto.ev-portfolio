@@ -159,7 +159,7 @@ export default function ContactPage() {
               <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 mx-auto md:mx-0 relative overflow-hidden rounded-lg">
                 <Image
                   src={portrait}
-                  alt="Evan Sanchez"
+                  alt="Evan Sanchez sitting on a rock on a forest trail, a dog beside him"
                   fill
                   sizes="(min-width: 768px) 240px, (min-width: 640px) 192px, 160px"
                   placeholder="blur"

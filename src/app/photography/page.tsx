@@ -34,33 +34,33 @@ import photo30 from "../../../public/assets/images/optimized/photography/photo30
 type Photo = { src: StaticImageData; alt: string };
 
 const column1: Photo[] = [
-  { src: photo25, alt: "Photography portfolio" },
-  { src: photo1, alt: "Photography portfolio" },
-  { src: photo18, alt: "Photography portfolio" },
-  { src: photo19, alt: "Photography portfolio" },
-  { src: photo6, alt: "Photography portfolio" },
-  { src: photo9, alt: "Photography portfolio" },
-  { src: photo10, alt: "Photography portfolio" },
-  { src: photo11, alt: "Photography portfolio" },
-  { src: photo13, alt: "Photography portfolio" },
-  { src: photo28, alt: "Photography portfolio" },
-  { src: photo8, alt: "Photography portfolio" },
-  { src: photo5, alt: "Photography portfolio" },
+  { src: photo25, alt: "Black-and-white view down a jagged granite ridge into a forested valley, Wasatch Range, Utah" },
+  { src: photo1, alt: "Rows of colourful houses on a grassy rise above a calm bay at golden hour, Iceland" },
+  { src: photo18, alt: "A person in light clothes sits in tall grass in front of a mountain range at dusk, Hawaii" },
+  { src: photo19, alt: "Looking up through the spiky leaves of a pandanus tree against a pale sky, Hawaii" },
+  { src: photo6, alt: "A blue corrugated-metal shed with a red roof beside a fjord, snow-streaked mountains behind, Iceland" },
+  { src: photo9, alt: "A person in a cap and olive jacket leans on a railing beside a wide waterfall, Iceland" },
+  { src: photo10, alt: "Two pairs of hiking boots on lichen-covered granite, Wasatch Range, Utah" },
+  { src: photo11, alt: "A person in a black dress stands in a field of purple lupines below snow-capped mountains, Iceland" },
+  { src: photo13, alt: "A person works at a bench in a studio workshop, lined tubs and shelves of supplies around them, seen past a doorframe" },
+  { src: photo28, alt: "Black-and-white: a sheer, striated granite face above a boulder field, Wasatch Range, Utah" },
+  { src: photo8, alt: "A blue rowing boat on a wooden dock beneath a red crane arm, a calm fjord behind, Iceland" },
+  { src: photo5, alt: "A person in shadow sits above a dark crater lake ringed by green hills under heavy cloud, Iceland" },
 ];
 
 const column2: Photo[] = [
-  { src: photo4, alt: "Photography portfolio" },
-  { src: photo16, alt: "Photography portfolio" },
-  { src: photo17, alt: "Photography portfolio" },
-  { src: photo21, alt: "Photography portfolio" },
-  { src: photo22, alt: "Photography portfolio" },
-  { src: photo23, alt: "Photography portfolio" },
-  { src: photo26, alt: "Photography portfolio" },
-  { src: photo12, alt: "Photography portfolio" },
-  { src: photo14, alt: "Photography portfolio" },
-  { src: photo30, alt: "Photography portfolio" },
-  { src: photo20, alt: "Photography portfolio" },
-  { src: photo3, alt: "Photography portfolio" },
+  { src: photo4, alt: "Houses along a low rocky point on a still bay, a distant headland on the horizon, Iceland" },
+  { src: photo16, alt: "Palm fronds silhouetted against a low sun over the coast, Hawaii" },
+  { src: photo17, alt: "A person in a white top stands with hands behind their head against green mountains and a cloudy sky, Hawaii" },
+  { src: photo21, alt: "Late-summer shrubs in the foreground below rugged grey peaks, Wasatch Range, Utah" },
+  { src: photo22, alt: "A hiker in a navy fleece and backpack stands among granite boulders, mountains behind, Wasatch Range, Utah" },
+  { src: photo23, alt: "Granite boulders above a deep glacial valley and jagged ridgelines, Wasatch Range, Utah" },
+  { src: photo26, alt: "Black-and-white portrait of a hiker with a backpack on a boulder field below a pointed peak, Wasatch Range, Utah" },
+  { src: photo12, alt: "A sailboat anchored on a glassy fjord at dusk, two swimmers nearby and red-lit mountains behind, Iceland" },
+  { src: photo14, alt: "Through a doorway, a person works at a bench at the back of a studio workshop under ventilation ducts" },
+  { src: photo30, alt: "Black-and-white: a hiker in a cap looks up at the sky beside a large granite boulder, Wasatch Range, Utah" },
+  { src: photo20, alt: "A sandstone cliff edge dropping to blue ocean, a small boat on the horizon, Hawaii" },
+  { src: photo3, alt: "A person in a white beanie and olive jacket, seen from behind, looks over a bay of small islands beside red-roofed houses, Iceland" },
 ];
 
 // Grid columns are ~686px wide at most (1400px container), full width below 768px.
@@ -74,7 +74,7 @@ export default function PhotographyPage() {
         {/* Hero Background Image */}
         <Image
           src={photo24}
-          alt="Photography Hero"
+          alt="A hiker with trekking poles crosses a tilted granite ridge under streaked cloud, Wasatch Range, Utah"
           fill
           sizes="100vw"
           placeholder="blur"
@@ -86,7 +86,7 @@ export default function PhotographyPage() {
         <div className="absolute top-[20px] right-[20px] sm:top-[30px] sm:right-[50px] md:top-[49px] md:right-[182px] z-10">
           <Image
             src={photo27}
-            alt="Portfolio piece"
+            alt="Black-and-white: a hiker in a cap and backpack looks down from a rocky summit ridge, Wasatch Range, Utah"
             width={200}
             height={133}
             sizes="(min-width: 768px) 445px, (min-width: 640px) 300px, 200px"
