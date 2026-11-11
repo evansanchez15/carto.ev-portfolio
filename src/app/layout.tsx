@@ -38,6 +38,43 @@ export const metadata: Metadata = {
   },
 };
 
+const address = {
+  "@type": "PostalAddress",
+  addressLocality: "Cedar Crest",
+  addressRegion: "NM",
+  addressCountry: "US",
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://cartoev.com/#person",
+      name: "Evan Sanchez",
+      url: "https://cartoev.com",
+      image: "https://cartoev.com/assets/images/optimized/photography/contact.jpg",
+      jobTitle: "Photographer, Filmmaker and Cartographer",
+      address,
+      alumniOf: { "@type": "CollegeOrUniversity", name: "University of Utah" },
+      knowsAbout: ["Film photography", "Filmmaking", "Cartography", "GIS"],
+      sameAs: ["https://www.instagram.com/carto.ev/"],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://cartoev.com/#business",
+      name: siteName,
+      url: "https://cartoev.com",
+      description: homePage.description,
+      image: "https://cartoev.com/assets/images/og/photo24.jpg",
+      email: "evanmsanchez15@gmail.com",
+      founder: { "@id": "https://cartoev.com/#person" },
+      address,
+      sameAs: ["https://www.instagram.com/carto.ev/"],
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -53,6 +90,10 @@ export default function RootLayout({
       <body
         className={`${archivoBlack.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
+        />
         {children}
       </body>
     </html>
