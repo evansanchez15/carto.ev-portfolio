@@ -150,7 +150,7 @@ export default function ContactPage() {
                   src={portrait}
                   alt="Evan Sanchez sitting on a rock on a forest trail, a dog beside him"
                   fill
-                  sizes="(min-width: 768px) 240px, (min-width: 640px) 192px, 160px"
+                  sizes="(min-width: 768px) 480px, (min-width: 640px) 384px, 320px"
                   placeholder="blur"
                   className="object-cover"
                 />
