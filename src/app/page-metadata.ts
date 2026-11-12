@@ -6,6 +6,10 @@ import type { Metadata } from "next";
 export const siteName = "CARTO.EV";
 
 export const ogImages = {
+  home: {
+    url: "/assets/images/og/home-split.jpg",
+    alt: "A shaded-relief terrain map beside a film photograph of a person looking out over a bay in Iceland",
+  },
   photography: {
     url: "/assets/images/og/photo24.jpg",
     alt: "A hiker with trekking poles crosses a tilted granite ridge under streaked cloud, Wasatch Range, Utah",
@@ -24,10 +28,10 @@ type PageMetadataInput = {
 };
 
 export const homePage = {
-  title: "Evan Sanchez — Photographer, Filmmaker & Cartographer",
+  title: "Evan Sanchez — Cartography & Photography",
   description:
-    "Outdoor and lifestyle photography and film, shot on 35mm, telling the story of places and the people and brands in them. Based in New Mexico. Maps and GIS too.",
-  image: ogImages.photography,
+    "Cartography and photography by Evan Sanchez: editorial maps and GIS analysis for journalism, research and advocacy, and outdoor lifestyle photography shot on 35mm film.",
+  image: ogImages.home,
 };
 
 export function pageMetadata({ title, description, path, image }: PageMetadataInput): Metadata {

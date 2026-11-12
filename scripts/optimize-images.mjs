@@ -86,4 +86,30 @@ for (const og of ogImages) {
   );
 }
 
+// Homepage share image: the two homepage tiles side by side (cartography left, photography
+// right), each centre-cropped like the tiles' object-cover, with the tiles' 10% black overlay
+// and a #EBEBEB gutter standing in for the gap between them.
+const split = { left: "hero/planet-volumes-SO0alFysHTg-unsplash.jpg", right: "hero/000017650003-2.jpg", out: "og/home-split.jpg" };
+{
+  const dest = path.join(images, split.out);
+  if (!force && fs.existsSync(dest)) {
+    console.log(`${path.relative(images, dest)} (exists)`);
+  } else {
+    const gutter = 12;
+    const half = (1200 - gutter) / 2;
+    const tile = (src) =>
+      sharp(path.join(images, src))
+        .rotate()
+        .resize({ width: half, height: 630, fit: "cover" })
+        .composite([{ input: { create: { width: half, height: 630, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 0.1 } } } }])
+        .toBuffer();
+    const [left, right] = await Promise.all([tile(split.left), tile(split.right)]);
+    await sharp({ create: { width: 1200, height: 630, channels: 3, background: "#EBEBEB" } })
+      .composite([{ input: left, left: 0, top: 0 }, { input: right, left: half + gutter, top: 0 }])
+      .jpeg({ quality: 85, mozjpeg: true })
+      .toFile(dest);
+    console.log(`${path.relative(images, dest)}  ${(fs.statSync(dest).size / 1024).toFixed(0)} KB`);
+  }
+}
+
 console.log(`TOTAL (photos + maps) ${mb(totalBefore)} -> ${mb(totalAfter)}`);
