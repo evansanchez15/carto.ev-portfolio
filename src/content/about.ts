@@ -1,4 +1,4 @@
-// About / contact page content. The bio moves here when it's rewritten (Phase 6).
+// About / contact page content.
 
 /** The portrait on /contact. Not part of the portfolio. */
 export const portrait = {
