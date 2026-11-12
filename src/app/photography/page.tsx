@@ -7,17 +7,17 @@ import Wordmark from "@/components/Wordmark";
 import { getPhoto } from "@/content/photography";
 import { photoImages, type PhotoFile } from "@/content/photo-images";
 
-// Grid order. The two columns are balanced by shape so they end at the same height
-// (landscape ~0.663 of the column width tall, portrait ~1.508); keep them balanced
-// when moving frames. On mobile the single column shows column1, then column2.
+// Grid order, as on the original site (df1c5a2). The columns aren't height-balanced;
+// on mobile the single column shows column1, then column2.
 const column1: PhotoFile[] = [
   "photo25.jpg", "photo1.jpg", "photo18.jpg", "photo19.jpg", "photo6.jpg", "photo9.jpg",
-  "photo10.jpg", "photo11.jpg", "photo13.jpg", "photo28.jpg", "photo8.jpg", "photo3.jpg",
+  "photo10.jpg", "photo11.jpg", "photo13.jpg", "photo28.jpg", "photo8.jpg", "photo5.jpg",
 ];
 
 const column2: PhotoFile[] = [
-  "photo4.jpg", "photo16.jpg", "photo17.jpg", "photo21.jpg", "photo22.jpg", "photo23.jpg",
-  "photo26.jpg", "photo12.jpg", "photo14.jpg", "photo30.jpg", "photo20.jpg", "photo5.jpg",
+  "photo4.jpg", "photo27.jpg", "photo16.jpg", "photo17.jpg", "photo21.jpg", "photo22.jpg",
+  "photo23.jpg", "photo26.jpg", "photo12.jpg", "photo14.jpg", "photo30.jpg", "photo20.jpg",
+  "photo2.jpg", "photo3.jpg",
 ];
 
 const hero = getPhoto("photo24.jpg");
