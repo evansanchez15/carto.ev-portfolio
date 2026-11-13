@@ -1,30 +1,16 @@
-'use client';
-
 import Image from "next/image";
-import styles from "./photography.module.css";
 import Footer from "@/components/Footer";
 import Wordmark from "@/components/Wordmark";
 import { getPhoto } from "@/content/photography";
-import { photoImages, type PhotoFile } from "@/content/photo-images";
+import { photoImages } from "@/content/photo-images";
+import { photoBrowserData } from "@/content/photo-browser";
+import PhotoBrowser from "./PhotoBrowser";
 
-// Grid order, as on the original site (df1c5a2). The columns aren't height-balanced;
-// on mobile the single column shows column1, then column2.
-const column1: PhotoFile[] = [
-  "photo25.jpg", "photo1.jpg", "photo18.jpg", "photo19.jpg", "photo6.jpg", "photo9.jpg",
-  "photo10.jpg", "photo11.jpg", "photo13.jpg", "photo28.jpg", "photo8.jpg", "photo5.jpg",
-];
-
-const column2: PhotoFile[] = [
-  "photo4.jpg", "photo27.jpg", "photo16.jpg", "photo17.jpg", "photo21.jpg", "photo22.jpg",
-  "photo23.jpg", "photo26.jpg", "photo12.jpg", "photo14.jpg", "photo30.jpg", "photo20.jpg",
-  "photo2.jpg", "photo3.jpg",
-];
+// The grid and its filters come from the place folders; see src/content/photo-browser.ts.
+const browser = photoBrowserData();
 
 const hero = getPhoto("photo24.jpg");
 const heroInset = getPhoto("photo27.jpg");
-
-// Grid columns are ~686px wide at most (1400px container), full width below 768px.
-const gridSizes = "(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 690px";
 
 export default function PhotographyPage() {
   return (
@@ -83,40 +69,8 @@ export default function PhotographyPage() {
             </div>
       </div>
 
-      {/* Photo Grid Section */}
-      <div className={styles.photographyGridContainer}>
-        <div className={styles.photographyGrid}>
-          {/* Column 1 - Left */}
-          <div className={styles.column1}>
-            {column1.map(getPhoto).map((photo) => (
-              <div key={photo.file} className={styles.photoItem}>
-                <Image
-                  src={photoImages[photo.file]}
-                  alt={photo.alt}
-                  sizes={gridSizes}
-                  placeholder="blur"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Column 2 - Right */}
-          <div className={styles.column2}>
-            {column2.map(getPhoto).map((photo) => (
-              <div key={photo.file} className={styles.photoItem}>
-                <Image
-                  src={photoImages[photo.file]}
-                  alt={photo.alt}
-                  sizes={gridSizes}
-                  placeholder="blur"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* Filter sidebar and photo grid */}
+      <PhotoBrowser photos={browser.photos} filterGroups={browser.filterGroups} />
 
       <Footer />
     </div>

@@ -1,9 +1,7 @@
 import Link from "next/link";
 import Wordmark from "./Wordmark";
 import { bodyFont } from "./fonts";
-
-// Shown publicly here, on /contact and in the JSON-LD in layout.tsx; update them together.
-const email = "evanmsanchez15@gmail.com";
+import { email } from "@/content/contact";
 
 type FooterProps = {
   /** Show the CONTACT button above the email. */

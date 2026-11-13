@@ -3,9 +3,11 @@
 //
 // Alt text was approved by Evan in Phase 1: a real description plus the place.
 // `place` is the place named at the end of the alt text; keep the two in step.
-// The /photography grid order lives in src/app/photography/page.tsx.
+// Which photos are on /photography, and under which filter, comes from the folders in
+// public/assets/images/portfolio/ (see places.generated.ts); this file holds the words and order.
 
 import type { PhotoFile } from "./photo-images";
+import type { FolderName, NewPhotoKey } from "./places.generated";
 
 export type Photo = {
   file: PhotoFile; // "photo24.jpg"
@@ -169,3 +171,63 @@ export function getPhoto(file: PhotoFile): Photo {
   if (!photo) throw new Error(`No entry for ${file} in src/content/photography.ts`);
   return photo;
 }
+
+// Alt text for photos that came in through the place folders (approved by Evan, Nov 2026), keyed by
+// "Folder/file". Existing photoN frames in the folders keep their alt text above. The build fails if
+// a folder photo has no entry here, or an entry no longer matches a photo.
+export const folderPhotoAlt: Record<NewPhotoKey, string> = {
+  "Utah/000005640021.jpg": "Pale aspen trunks crowded beneath a canopy of golden autumn leaves, Utah",
+  "Utah/000057110021.jpg": "A grassy alpine meadow below a pointed peak, a broad valley and distant lake beyond, Utah",
+  "Utah/000057110027.jpg": "A hiker crouches among huge granite slabs below a jagged, pale rock ridge, Utah",
+  "Utah/000057110029.jpg": "A hiker sits on a boulder in a wide golden meadow beside a dog, grey cliffs and cloud beyond, Utah",
+  "Utah/000057110030.jpg": "A rainbow over a scree slope above red autumn shrubs and scattered pines, Utah",
+  "Utah/000057110031.jpg": "A hiker in a teal headband looks across an autumn basin ringed by grey cliffs under heavy cloud, Utah",
+  "Utah/000057110032.jpg": "A hiker in a white beanie and purple jacket stands with trekking poles beside a dog in a misty autumn valley, Utah",
+  "Utah/000057110035-2.jpg": "Out-of-focus yellow aspen leaves in front of a stand of autumn aspens, Utah",
+  "Utah/000076620027.jpg": "A lone hiker crosses a boulder field below a steep scree-covered mountainside, Utah",
+  "Utah/000076620031.jpg": "A steep, striated rock ridge dropping into a forested valley, ranges of mountains beyond, Utah",
+  "Utah/000076620033.jpg": "A hiker with trekking poles stands on a rocky ridge under a wide blue sky, peaks all around, Utah",
+  "Utah/000094060008.jpg": "Black-and-white: a jagged rocky ridgeline under a sky full of cloud, Utah",
+  "Utah/000094060024.jpg": "Black-and-white: a hiker silhouetted against the sun beside a row of jagged rock spires, Utah",
+  "Utah/000094060025.jpg": "Black-and-white: a wall of fractured granite above a field of rounded boulders under a dark sky, Utah",
+  "Utah/000094060034.jpg": "Black-and-white: looking down on a hiker scrambling through a jumble of large boulders, Utah",
+  "Iceland/000017650013.jpg": "A swimmer in a calm, wide river below a low range of hills under a pale sky, Iceland",
+  "Iceland/000017650022.jpg": "A person with red hair, seen from behind, looks over a mossy green gorge as a seabird flies past, Iceland",
+  "Iceland/000017660032.jpg": "Two people in rain jackets, seen from behind, look up a steep green canyon at tall waterfalls, Iceland",
+  "Iceland/000017700012.jpg": "A field of purple and pink lupines below snow-streaked mountains, Iceland",
+  "Iceland/000017700013.jpg": "Close-up of lupine spikes against a pale sky, snow-capped mountains low on the horizon, Iceland",
+  "Iceland/000017700019.jpg": "A slope of purple lupines rising to a steep mountainside in low sun, Iceland",
+  "Iceland/000017700020.jpg": "A person in a black dress stands waist-deep in lupines, looking away, snow-capped mountains behind, Iceland",
+  "Iceland/000017700032.jpg": "A figure on a bench silhouetted against a fjord at sunset, dark mountains on the far shore, Iceland",
+  "Iceland/000017730006.jpg": "A hiker with a backpack stands on a grassy hill overlooking a broad green plain to the sea, Iceland",
+  "Iceland/000017730034-2.jpg": "A person in a blue life jacket carries a packraft and paddle across a mossy riverbank under grey sky, Iceland",
+  "Pottery/000029550036.jpg": "A potter at a wheel in a cluttered studio, seen past white bisque pots in the foreground",
+  "Pottery/000029560006.jpg": "A potter in a brown zip jacket wipes their hands with a rag between wheel stations",
+  "Pottery/000029560007.jpg": "Overhead view of a ribbed clay form on a wheel being dried with a torch",
+  "Pottery/000029560008.jpg": "A potter in a maroon jacket and jeans dries a ribbed clay form on the wheel with a torch",
+  "Pottery/000029560015.jpg": "A potter in a green top wedges clay on a paint-spattered table in a warmly lit studio",
+  "Pottery/000029560016.jpg": "Close-up of hands wedging a ball of clay on a paint-spattered table",
+  "Pottery/000029560019.jpg": "Black-and-white portrait of a person in safety goggles and a respirator",
+  "Pottery/000029560020.jpg": "A person in a respirator sprays glaze onto a bowl in a spray booth",
+};
+
+// The /photography filters, top to bottom: the places, then (after a small gap) the filters that
+// aren't places. A folder with no photos is hidden until it has some. A folder that isn't listed
+// here is added to the end of the places.
+export const filterGroups: FolderName[][] = [
+  ["Utah", "Iceland", "New Mexico", "Hawaii"],
+  ["Pottery"],
+];
+
+// The all-photos view. First these, in this order: the original grid, read left to right…
+export const allPhotosLead: PhotoFile[] = [
+  "photo25.jpg", "photo4.jpg", "photo1.jpg", "photo27.jpg", "photo18.jpg", "photo16.jpg",
+  "photo19.jpg", "photo17.jpg", "photo6.jpg", "photo21.jpg", "photo9.jpg", "photo22.jpg",
+  "photo10.jpg", "photo23.jpg", "photo11.jpg", "photo26.jpg", "photo13.jpg", "photo12.jpg",
+  "photo28.jpg", "photo14.jpg", "photo8.jpg", "photo30.jpg", "photo5.jpg", "photo20.jpg",
+  "photo2.jpg", "photo3.jpg",
+];
+
+// …then every other place photo, one place at a time in this rotation (each place in folder
+// order), then the photos of the filters that aren't places.
+export const newPhotoRotation: FolderName[] = ["Iceland", "Utah", "Hawaii", "New Mexico"];

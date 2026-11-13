@@ -1,7 +1,6 @@
 // Static imports of every optimized photo, keyed by filename. Static imports give
-// next/image the real dimensions and a blur placeholder. To add a photo: put the
-// original in public/assets/images/portfolio/photography/, run
-// `node scripts/optimize-images.mjs`, then add a line here and an entry in photography.ts.
+// next/image the real dimensions and a blur placeholder. These are the original 30 frames;
+// new photos go in a place folder instead (see places.generated.ts), which needs no line here.
 import type { StaticImageData } from "next/image";
 import photo1 from "../../public/assets/images/optimized/photography/photo1.jpg";
 import photo2 from "../../public/assets/images/optimized/photography/photo2.jpg";

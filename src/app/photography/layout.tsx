@@ -1,6 +1,6 @@
 import { ogImages, pageMetadata } from "../page-metadata";
 
-// page.tsx in this segment is a client component, so its metadata lives here.
+// Route metadata for /photography.
 export const metadata = pageMetadata({
   title: "Photography",
   description: "Outdoor lifestyle and adventure photography by Evan Sanchez, shot on 35mm film in Utah's Wasatch Range, Iceland and Hawaii.",
