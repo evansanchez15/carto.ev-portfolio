@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import styles from "./photography.module.css";
 import { bodyFont, displayFont } from "@/components/fonts";
 import { email } from "@/content/contact";
@@ -21,8 +21,42 @@ type Props = {
 const gridSizes =
   "(max-width: 767px) 100vw, (max-width: 1023px) calc(50vw - 89px), (max-width: 2230px) calc(50vw - 119px), 996px";
 
-// Fade out, swap the photos, fade in: 2 × 120ms.
-const FADE_MS = 120;
+// "Raindrops": on a filter change each photo near the screen fades in while dropping 12px into
+// place, starting 40–70ms after the last in a slightly shuffled top-to-bottom order.
+const DROP_MS = 450;
+const DROP_PX = 12;
+const DROP_GAP_MS = [40, 70] as const;
+// The last photo starts by this, so the whole thing takes about a second at most.
+const DROP_LAST_START_MS = 1000 - DROP_MS;
+const DROP_EASING = "cubic-bezier(0.215, 0.61, 0.355, 1)"; // ease-out cubic
+
+/** Animate the photos in or near the viewport in as raindrops; the rest are left as they are. */
+function rainIn(items: HTMLElement[]) {
+  const vh = window.innerHeight;
+  const near = items
+    .map((el) => ({ el, rect: el.getBoundingClientRect() }))
+    .filter(({ rect }) => rect.bottom > -vh * 0.25 && rect.top < vh * 1.25);
+  // Roughly top to bottom, with enough jitter that neighbours land out of order.
+  const order = near
+    .map((n) => ({ ...n, key: n.rect.top + Math.random() * vh * 0.35 }))
+    .sort((a, b) => a.key - b.key);
+  const starts = [0];
+  for (let i = 1; i < order.length; i++) {
+    starts.push(starts[i - 1] + DROP_GAP_MS[0] + Math.random() * (DROP_GAP_MS[1] - DROP_GAP_MS[0]));
+  }
+  // Squeeze the gaps if there are so many photos that the last would start too late.
+  const squeeze = Math.min(1, DROP_LAST_START_MS / (starts[starts.length - 1] || 1));
+  order.forEach(({ el }, i) => {
+    el.animate(
+      [
+        { opacity: 0, transform: `translateY(-${DROP_PX}px)` },
+        { opacity: 1, transform: "translateY(0)" },
+      ],
+      // `backwards` holds each photo hidden until its turn; transforms don't move the layout.
+      { duration: DROP_MS, delay: starts[i] * squeeze, easing: DROP_EASING, fill: "backwards" },
+    );
+  });
+}
 
 // The 16px between frames, as a fraction of a ~600px column, for the column balancing.
 const FRAME_GAP = 16 / 600;
@@ -92,28 +126,38 @@ function ActiveMarker() {
 
 export default function PhotoBrowser({ photos, filterGroups }: Props) {
   const filters = useMemo(() => filterGroups.flat(), [filterGroups]);
-  // `selected` drives the sidebar at once; `shown` swaps the grid while it's faded out.
   const [selected, setSelected] = useState<string | null>(null);
-  const [shown, setShown] = useState<string | null>(null);
-  const [fading, setFading] = useState(false);
   const [status, setStatus] = useState("");
-  const timer = useRef<number | undefined>(undefined);
+  // Counts filter changes; each one (never the first load) rains the new photos in.
+  const [drops, setDrops] = useState(0);
   const browser = useRef<HTMLDivElement>(null);
+  const grid = useRef<HTMLDivElement>(null);
 
   // Open on the filter in the URL (?place=utah), if it's one we show.
   useEffect(() => {
     const place = new URLSearchParams(window.location.search).get("place");
     if (place && filters.some((f) => f.slug === place)) {
       setSelected(place);
-      setShown(place);
     }
-    return () => window.clearTimeout(timer.current);
   }, [filters]);
 
   const columns = useMemo(
-    () => balance(shown ? photos.filter((p) => p.filter === shown) : photos),
-    [photos, shown],
+    () => balance(selected ? photos.filter((p) => p.filter === selected) : photos),
+    [photos, selected],
   );
+
+  // After a filter change has rendered (so every photo is already in its final place) and
+  // before it's painted: bring the grid's top back into view if it had scrolled away, then
+  // rain in the photos near the screen.
+  useLayoutEffect(() => {
+    if (!drops || !grid.current) return;
+    const top = browser.current?.getBoundingClientRect().top ?? 0;
+    if (top < 0) window.scrollTo({ top: window.scrollY + top });
+    const items = [...grid.current.querySelectorAll<HTMLElement>("[data-photo]")];
+    items.forEach((el) => el.getAnimations().forEach((a) => a.cancel()));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    rainIn(items);
+  }, [drops]);
 
   function choose(slug: string | null) {
     // Clicking the active filter again shows everything.
@@ -127,22 +171,8 @@ export default function PhotoBrowser({ photos, filterGroups }: Props) {
     window.history.replaceState(null, "", url);
 
     const filter = filters.find((f) => f.slug === next);
-    const swap = () => {
-      setShown(next);
-      setFading(false);
-      setStatus(filter ? `${filter.count} photographs: ${filter.name}` : `All ${photos.length} photographs`);
-      // If the grid's top has scrolled away, bring it back so the new set starts in view.
-      const top = browser.current?.getBoundingClientRect().top ?? 0;
-      if (top < 0) window.scrollTo({ top: window.scrollY + top });
-    };
-
-    window.clearTimeout(timer.current);
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      swap();
-    } else {
-      setFading(true);
-      timer.current = window.setTimeout(swap, FADE_MS);
-    }
+    setStatus(filter ? `${filter.count} photographs: ${filter.name}` : `All ${photos.length} photographs`);
+    setDrops((n) => n + 1);
   }
 
   // Real links, so a filtered view can be opened in a new tab or copied; plain clicks filter in place.
@@ -174,8 +204,12 @@ export default function PhotoBrowser({ photos, filterGroups }: Props) {
     <>
       <div ref={browser} className={styles.browser}>
         <aside className="sticky top-0 z-20 bg-white border-b border-[#E4E4E1] px-[10px] py-[6px] md:top-[60px] md:self-start md:bg-transparent md:border-0 md:py-0 md:pl-[24px] md:pr-[16px] lg:pl-[40px]">
-          {/* Archivo Black, like the wordmark; 32px "Sanchez" is 158px of the 164px column. */}
-          <p className="hidden md:block text-[#424242] text-[22px] lg:text-[32px] leading-[1.05] tracking-[0.05em]" style={displayFont}>
+          {/* Archivo Black caps, like the wordmark. At line-height 1 the capitals' tops sit ~0.13em
+              below the box (ascent 0.88 − cap height 0.704 − half-leading 0.045); the negative margin
+              lifts them level with the top of the first photo (set per size in px, measured, because
+              of pixel snapping). The E's stem already lines up with the links' stems, so no side-
+              bearing correction. 28px "SANCHEZ" is 159px of the 164px column; 21px is 120 of 120. */}
+          <p className="hidden md:block -mt-[1.75px] lg:-mt-[3.5px] text-[#424242] text-[21px] lg:text-[28px] leading-none tracking-[0.05em] uppercase" style={displayFont}>
             Evan
             <br />
             Sanchez
@@ -203,11 +237,11 @@ export default function PhotoBrowser({ photos, filterGroups }: Props) {
           <p className="sr-only" aria-live="polite">
             {status}
           </p>
-          <div className={`${styles.photographyGrid} ${fading ? styles.fading : ""}`}>
+          <div ref={grid} className={styles.photographyGrid}>
             {columns.map((column, c) => (
               <div key={c} className={styles.column}>
                 {column.map(({ photo, order }) => (
-                  <div key={photo.id} className={styles.photoItem} style={{ order }}>
+                  <div key={photo.id} data-photo className={styles.photoItem} style={{ order }}>
                     <Image
                       src={photo.image}
                       alt={photo.alt}

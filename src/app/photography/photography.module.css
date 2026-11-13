@@ -10,11 +10,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   align-items: start;
-  transition: opacity 120ms ease-out;
-}
-
-.fading {
-  opacity: 0;
 }
 
 .photoItem {
@@ -77,11 +72,5 @@
 @media (min-width: 1024px) {
   .browser {
     grid-template-columns: 220px minmax(0, 1fr);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .photographyGrid {
-    transition: none;
   }
 }
