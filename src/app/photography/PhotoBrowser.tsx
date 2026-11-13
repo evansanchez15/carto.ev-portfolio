@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 import styles from "./photography.module.css";
-import { bodyFont } from "@/components/fonts";
+import { bodyFont, displayFont } from "@/components/fonts";
 import { email } from "@/content/contact";
 import type { BrowserPhoto, Filter } from "@/content/photo-browser";
 
@@ -16,9 +16,10 @@ type Props = {
 };
 
 // Matches the column widths in photography.module.css: full width under 768px; beside a 160px
-// (768–1023px) or 220px sidebar, with a 10px right gutter and an 8px gap; 691px at most.
+// (768–1023px) or 220px sidebar, with a 10px right gutter and an 8px gap; the grid stops growing
+// at 2000px (from a 2230px-wide window), so a column is 996px at most.
 const gridSizes =
-  "(max-width: 767px) 100vw, (max-width: 1023px) calc(50vw - 89px), (max-width: 1620px) calc(50vw - 119px), 691px";
+  "(max-width: 767px) 100vw, (max-width: 1023px) calc(50vw - 89px), (max-width: 2230px) calc(50vw - 119px), 996px";
 
 // Fade out, swap the photos, fade in: 2 × 120ms.
 const FADE_MS = 120;
@@ -71,7 +72,23 @@ function balance(photos: BrowserPhoto[]) {
   return columns;
 }
 
-const linkText = "text-[14px] lg:text-[16px] tracking-[0.05em] transition-colors";
+// Small uppercase with wide tracking, like the hero's PHOTOGRAPHY label.
+const linkText = "uppercase text-[11px] lg:text-[12px] tracking-[0.15em] transition-colors";
+
+/** The /cartography accent triangle (8×6, #C3CE9D), filled so it reads at this size. Under the active tab on mobile,
+ *  hanging to its left (pointing at it) in the sidebar. */
+function ActiveMarker() {
+  return (
+    <span
+      aria-hidden="true"
+      className="absolute left-1/2 bottom-0 -translate-x-1/2 md:left-[-15px] md:bottom-auto md:top-1/2 md:translate-x-0 md:-translate-y-1/2 md:rotate-90 leading-none"
+    >
+      <svg width="8" height="6" fill="none" className="block">
+        <path d="M4 1 L7 5 L1 5 Z" stroke="#C3CE9D" strokeWidth="1" strokeLinejoin="round" fill="#C3CE9D" />
+      </svg>
+    </span>
+  );
+}
 
 export default function PhotoBrowser({ photos, filterGroups }: Props) {
   const filters = useMemo(() => filterGroups.flat(), [filterGroups]);
@@ -142,14 +159,13 @@ export default function PhotoBrowser({ photos, filterGroups }: Props) {
         href={slug ? `/photography?place=${slug}` : "/photography"}
         onClick={onFilterClick(slug)}
         aria-current={active ? "true" : undefined}
-        className={`inline-block py-[4px] md:py-[2px] ${linkText} ${
-          active
-            ? "text-[#424242] underline underline-offset-[5px] decoration-1"
-            : "text-[#666666] hover:text-[#424242]"
+        className={`relative inline-block py-[6px] md:py-[2px] ${linkText} ${
+          active ? "text-[#424242]" : "text-[#666666] hover:text-[#424242]"
         }`}
         style={bodyFont}
       >
         {label}
+        {active && <ActiveMarker />}
       </a>
     );
   };
@@ -158,8 +174,11 @@ export default function PhotoBrowser({ photos, filterGroups }: Props) {
     <>
       <div ref={browser} className={styles.browser}>
         <aside className="sticky top-0 z-20 bg-white border-b border-[#E4E4E1] px-[10px] py-[6px] md:top-[60px] md:self-start md:bg-transparent md:border-0 md:py-0 md:pl-[24px] md:pr-[16px] lg:pl-[40px]">
-          <p className="hidden md:block text-[#424242] text-[14px] lg:text-[16px] font-bold tracking-[0.05em]" style={bodyFont}>
-            Evan Sanchez
+          {/* Archivo Black, like the wordmark; 32px "Sanchez" is 158px of the 164px column. */}
+          <p className="hidden md:block text-[#424242] text-[22px] lg:text-[32px] leading-[1.05] tracking-[0.05em]" style={displayFont}>
+            Evan
+            <br />
+            Sanchez
           </p>
 
           <nav aria-label="Filter photographs" className="md:mt-[24px]">
@@ -212,7 +231,7 @@ export default function PhotoBrowser({ photos, filterGroups }: Props) {
   );
 }
 
-const iconClass = "w-[14px] h-[14px]";
+const iconClass = "w-[11px] h-[11px]";
 
 const socials = [
   {
@@ -252,14 +271,14 @@ function AboutAndSocials() {
       <Link href="/contact" className={`${linkText} text-[#666666] hover:text-[#424242]`} style={bodyFont}>
         About
       </Link>
-      <ul className="mt-[16px] flex gap-[10px]">
+      <ul className="mt-[14px] flex gap-[8px]">
         {socials.map((social) => (
           <li key={social.label}>
             <a
               href={social.href}
               aria-label={social.label}
               {...(social.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="flex items-center justify-center w-[28px] h-[28px] rounded-full bg-[#424242] text-white hover:bg-[#333333] transition-colors"
+              className="flex items-center justify-center w-[22px] h-[22px] rounded-full bg-[#424242] text-white hover:bg-[#333333] transition-colors"
             >
               {social.icon}
             </a>

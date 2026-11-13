@@ -1,11 +1,6 @@
 /* /photography below the hero: the filter sidebar and the two-column grid.
    Under 768px the filters are a sticky row of tabs above a single column. */
 
-.browser {
-  max-width: 1620px;
-  margin: 0 auto;
-}
-
 .photographyGridContainer {
   padding: 0 10px 10px 10px;
 }
@@ -61,7 +56,9 @@
   }
 }
 
-/* Sidebar left, grid right. Column widths here must match `gridSizes` in PhotoBrowser.tsx. */
+/* Sidebar pinned to the left edge. The grid starts right after it, with a 10px right margin,
+   and grows with the window up to 2000px of photos (2010px with the margin); past that it's
+   centred in the rest of the width. Column widths here must match `gridSizes` in PhotoBrowser.tsx. */
 @media (min-width: 768px) {
   .browser {
     display: grid;
@@ -70,6 +67,9 @@
   }
 
   .photographyGridContainer {
+    width: 100%;
+    max-width: 2010px;
+    margin: 0 auto;
     padding: 0 10px 20px 0;
   }
 }
