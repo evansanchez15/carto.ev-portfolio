@@ -47,9 +47,13 @@
 /* One column, in reading order: the two column wrappers drop out of the layout and each
    photo's `order` puts it back in sequence. */
 @media (max-width: 767px) {
+  /* `stretch` matters: with the desktop `align-items: start`, each frame shrinks to fit its
+     image, and an image that hasn't loaded yet has no width, so the frame (and its blur
+     placeholder) collapses to 0px until the photo arrives. */
   .photographyGrid {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
   }
 
   .column {
