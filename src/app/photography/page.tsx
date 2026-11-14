@@ -5,6 +5,7 @@ import { getPhoto } from "@/content/photography";
 import { photoImages } from "@/content/photo-images";
 import { photoBrowserData } from "@/content/photo-browser";
 import PhotoBrowser from "./PhotoBrowser";
+import styles from "./photography.module.css";
 
 // The grid and its filters come from the place folders; see src/content/photo-browser.ts.
 const browser = photoBrowserData();
@@ -14,7 +15,7 @@ const heroInset = getPhoto("photo27.jpg");
 
 export default function PhotographyPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`${styles.page} min-h-screen bg-[#F8F5EF]`}>
       {/* Hero Section — bg is photo24's average colour, so the first paint is never white */}
       <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[1118px] overflow-hidden bg-[#7D887C]">
         {/* Hero Background Image */}
@@ -72,7 +73,7 @@ export default function PhotographyPage() {
       {/* Filter sidebar and photo grid */}
       <PhotoBrowser photos={browser.photos} filterGroups={browser.filterGroups} />
 
-      <Footer />
+      <Footer warm />
     </div>
   );
 }

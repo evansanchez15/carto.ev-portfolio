@@ -1,6 +1,12 @@
 /* /photography below the hero: the filter sidebar and the two-column grid.
    Under 768px the filters are a sticky row of tabs above a single column. */
 
+/* The page is warm cream (#F8F5EF), set on the page wrapper and the mobile tab row. This also
+   colours the canvas behind it (seen when the page bounces past its ends), only on this page. */
+html:has(.page) {
+  background: #f8f5ef;
+}
+
 .photographyGridContainer {
   padding: 0 10px 10px 10px;
 }
@@ -20,14 +26,14 @@
   margin-bottom: 8px;
 }
 
-/* Hover: a light grey wash fades over the photo (only where hover exists, so it can't stick on
+/* Hover: a light warm-grey wash (#ECE7DE, warmed to suit the cream page) fades over the photo (only where hover exists, so it can't stick on
    touch screens). It's a separate layer, so it doesn't touch the photo's own opacity (used by the
    raindrop animation) or the blur placeholder underneath. */
 .photoItem::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: #ebebeb;
+  background: #ece7de;
   opacity: 0;
   transition: opacity 200ms ease;
   pointer-events: none;

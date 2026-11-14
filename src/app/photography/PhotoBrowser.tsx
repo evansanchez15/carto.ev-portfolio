@@ -206,7 +206,7 @@ export default function PhotoBrowser({ photos, filterGroups }: Props) {
   return (
     <>
       <div ref={browser} className={styles.browser}>
-        <aside className="sticky top-0 z-20 bg-white border-b border-[#E4E4E1] px-[10px] py-[6px] md:top-[60px] md:self-start md:bg-transparent md:border-0 md:py-0 md:px-[16px] md:text-center">
+        <aside className="sticky top-0 z-20 bg-[#F8F5EF] border-b border-[#E9E4DA] px-[10px] py-[6px] md:top-[60px] md:self-start md:bg-transparent md:border-0 md:py-0 md:px-[16px] md:text-center">
           {/* Archivo Black caps, like the wordmark. At line-height 1 the capitals' tops sit ~0.13em
               below the box (ascent 0.88 − cap height 0.704 − half-leading 0.045); the negative margin
               lifts them level with the top of the first photo (set per size in px, measured, because
