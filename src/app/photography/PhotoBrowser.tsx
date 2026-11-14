@@ -106,16 +106,19 @@ function balance(photos: BrowserPhoto[]) {
   return columns;
 }
 
-// Small uppercase with wide tracking, like the hero's PHOTOGRAPHY label.
-const linkText = "uppercase text-[11px] lg:text-[12px] tracking-[0.15em] transition-colors";
+// Small uppercase with wide tracking, like the hero's PHOTOGRAPHY label. In the (centred) sidebar
+// the negative right margin cancels the tracking after the last letter, so the letters themselves
+// are centred.
+const linkText = "uppercase text-[11px] lg:text-[12px] tracking-[0.15em] md:-mr-[0.15em] transition-colors";
 
-/** The /cartography accent triangle (8×6, #C3CE9D), filled so it reads at this size. Under the active tab on mobile,
- *  hanging to its left (pointing at it) in the sidebar. */
+/** The /cartography accent triangle (8×6, #C3CE9D), filled so it reads at this size. Under the active
+ *  tab on mobile; in the sidebar, just left of the centred link text, pointing at it (absolutely
+ *  positioned, so it never moves the text off centre). */
 function ActiveMarker() {
   return (
     <span
       aria-hidden="true"
-      className="absolute left-1/2 bottom-0 -translate-x-1/2 md:left-[-15px] md:bottom-auto md:top-1/2 md:translate-x-0 md:-translate-y-1/2 md:rotate-90 leading-none"
+      className="absolute left-1/2 bottom-0 -translate-x-1/2 md:left-[-12px] md:bottom-auto md:top-1/2 md:translate-x-0 md:-translate-y-1/2 md:rotate-90 leading-none"
     >
       <svg width="8" height="6" fill="none" className="block">
         <path d="M4 1 L7 5 L1 5 Z" stroke="#C3CE9D" strokeWidth="1" strokeLinejoin="round" fill="#C3CE9D" />
@@ -203,13 +206,13 @@ export default function PhotoBrowser({ photos, filterGroups }: Props) {
   return (
     <>
       <div ref={browser} className={styles.browser}>
-        <aside className="sticky top-0 z-20 bg-white border-b border-[#E4E4E1] px-[10px] py-[6px] md:top-[60px] md:self-start md:bg-transparent md:border-0 md:py-0 md:pl-[24px] md:pr-[16px] lg:pl-[40px]">
+        <aside className="sticky top-0 z-20 bg-white border-b border-[#E4E4E1] px-[10px] py-[6px] md:top-[60px] md:self-start md:bg-transparent md:border-0 md:py-0 md:px-[16px] md:text-center">
           {/* Archivo Black caps, like the wordmark. At line-height 1 the capitals' tops sit ~0.13em
               below the box (ascent 0.88 − cap height 0.704 − half-leading 0.045); the negative margin
               lifts them level with the top of the first photo (set per size in px, measured, because
-              of pixel snapping). The E's stem already lines up with the links' stems, so no side-
-              bearing correction. 28px "SANCHEZ" is 159px of the 164px column; 21px is 120 of 120. */}
-          <p className="hidden md:block -mt-[1.75px] lg:-mt-[3.5px] text-[#424242] text-[21px] lg:text-[28px] leading-none tracking-[0.05em] uppercase" style={displayFont}>
+              of pixel snapping). The left padding balances the tracking after the last letter, so the
+              centred lines are centred on their letters. 28px "SANCHEZ" is 159px wide, 21px is 120. */}
+          <p className="hidden md:block -mt-[1.75px] lg:-mt-[3.5px] pl-[0.05em] text-[#424242] text-[21px] lg:text-[28px] leading-none tracking-[0.05em] uppercase" style={displayFont}>
             Evan
             <br />
             Sanchez
@@ -305,7 +308,7 @@ function AboutAndSocials() {
       <Link href="/contact" className={`${linkText} text-[#666666] hover:text-[#424242]`} style={bodyFont}>
         About
       </Link>
-      <ul className="mt-[14px] flex gap-[8px]">
+      <ul className="mt-[14px] flex md:justify-center gap-[8px]">
         {socials.map((social) => (
           <li key={social.label}>
             <a
