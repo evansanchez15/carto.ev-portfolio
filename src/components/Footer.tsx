@@ -6,8 +6,6 @@ import { email } from "@/content/contact";
 type FooterProps = {
   /** Show the CONTACT button above the email. */
   contactButton?: boolean;
-  /** Warm grey (#E9E4DA) instead of #E4E4E1, to sit with /photography's cream page. */
-  warm?: boolean;
 };
 
 function Email() {
@@ -25,9 +23,10 @@ function Email() {
  * always fits beside the email column (see CLAUDE.md, "Footer wordmark sizing");
  * recompute them if the email, the right-hand column or the padding changes.
  */
-export default function Footer({ contactButton = false, warm = false }: FooterProps) {
+export default function Footer({ contactButton = false }: FooterProps) {
   return (
-    <footer className={`relative ${warm ? "bg-[#E9E4DA]" : "bg-[#E4E4E1]"} py-8 sm:py-12 md:py-16 mt-10 sm:mt-15 md:mt-20`}>
+    // Warm grey, to sit with the site's warm backgrounds.
+    <footer className="relative bg-[#E9E4DA] py-8 sm:py-12 md:py-16 mt-10 sm:mt-15 md:mt-20">
       <div className="pl-4 sm:pl-6 md:pl-8 flex flex-col sm:flex-row sm:items-end sm:justify-between pr-4 sm:pr-6 md:pr-8">
         <div className="text-left mb-4 sm:mb-0">
           <Wordmark

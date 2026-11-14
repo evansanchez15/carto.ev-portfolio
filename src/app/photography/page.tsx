@@ -73,7 +73,7 @@ export default function PhotographyPage() {
       {/* Filter sidebar and photo grid */}
       <PhotoBrowser photos={browser.photos} filterGroups={browser.filterGroups} />
 
-      <Footer warm />
+      <Footer />
     </div>
   );
 }

@@ -25,7 +25,9 @@ export default function CartographyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FEFFFE] relative overflow-x-hidden">
+    // Barely-warm off-white: as warm as it can go while the white baked into Contour3.svg and the
+    // map images stays invisible (ΔE < 1). Warmer needs cream/transparent exports of those.
+    <div className="min-h-screen bg-[#FEFDFC] relative overflow-x-hidden">
       {/* Hero Section Container */}
       <div className="relative w-full h-[85vh] sm:h-[90vh] md:h-screen min-h-[500px] max-h-[1200px] overflow-hidden">
         {/* Topographic Background */}

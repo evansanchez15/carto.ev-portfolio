@@ -8,7 +8,7 @@ export const metadata = pageMetadata({ ...homePage, path: "/" });
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#EBEBEB] relative overflow-hidden">
+    <div className="min-h-screen bg-[#ECE8E1] relative overflow-hidden">
       {/* Brand Name - Above the photo completely */}
       <div className="absolute top-4 left-4 md:top-6 md:left-12 z-10">
         <h1 className="text-[#C3C3C3] text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] leading-none tracking-tight font-black" style={{ fontFamily: 'var(--font-archivo-black), "Archivo Black", sans-serif', fontWeight: 900 }}>

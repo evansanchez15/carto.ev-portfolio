@@ -3,7 +3,7 @@ import Wordmark from "./Wordmark";
 /** Grey header band: wordmark on the left, Instagram on the right. */
 export default function Header() {
   return (
-    <div className="bg-[#EBEBEB] py-4 sm:py-6 md:py-8">
+    <div className="bg-[#ECE8E1] py-4 sm:py-6 md:py-8">
       <div className="relative flex justify-start items-center pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-6 md:pr-8">
         <Wordmark
           linkClassName="inline-block"
